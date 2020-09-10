@@ -6,7 +6,7 @@ Diego Rodrigo da Silva
 Guilherme Oliveira  
 Guilherme Madeira  
 Henrique Kenji Nawa
-João Victor Marinho de Souza
+João Victor Marinho 
 João Pedro  
 Pedro Cruz  
 Thalles Santos Torres
