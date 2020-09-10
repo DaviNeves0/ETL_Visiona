@@ -6,7 +6,7 @@ Diego Rodrigo da Silva
 Guilherme Oliveira  
 Guilherme Madeira  
 Henrique  
-João Victor  
+João Victor Marinho de Souza
 João Pedro  
 Pedro Cruz  
 Thalles  
