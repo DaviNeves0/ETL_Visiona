@@ -9,4 +9,4 @@ Henrique
 João Victor Marinho de Souza
 João Pedro  
 Pedro Cruz  
-Thalles  
+Thalles Santos Torres
