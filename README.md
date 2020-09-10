@@ -7,7 +7,6 @@ Guilherme Oliveira
 Guilherme Madeira  
 Henrique  
 João Victor Marinho de Souza
-
 João Pedro  
 Pedro Cruz  
 Thalles  
