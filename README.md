@@ -5,7 +5,7 @@ Davi
 Diego Rodrigo da Silva  
 Guilherme Oliveira  
 Guilherme Madeira  
-Henrique  
+Henrique Kenji Nawa
 João Victor Marinho de Souza
 João Pedro  
 Pedro Cruz  
