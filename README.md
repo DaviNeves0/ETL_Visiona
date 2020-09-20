@@ -43,7 +43,7 @@ O sistema permite gerenciar os arquivos de dados georreferenciados no formato Sh
 O usuário deve ser capaz de acessar através de seu navegador padrão página para interagir com banco específico de dados georreferenciados. A conexão com o banco deve ser de forma automática e sem necessidade de entrada de login e senha pelo usuário.
 
 **[RF002] Realizar upload de arquivos Shapefile**  
-O usuário deve ser capaz de selecionar arquivos de seu dispositivo de acesso para serem carregados para o sistema; 
+O usuário deve ser capaz de selecionar arquivos de seu dispositivo de acesso para serem carregados para o sistema. 
 
 **[RF003] Converter upload para formato PostGIS**  
 Ao realizar o upload e selecionar as configurações, o sistema fará a conversão para PostGIS e os dados serão gravados no banco.
