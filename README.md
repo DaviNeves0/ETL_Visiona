@@ -3,7 +3,7 @@
 
 Davi Silva Martins das Neves  
 Diego Rodrigo da Silva  
-Guilherme Oliveira P. Alvarenga
+Guilherme Oliveira P. Alvarenga  
 Guilherme Madeira  
 Henrique Kenji Nawa  
 João Victor Marinho de Souza  
