@@ -106,4 +106,11 @@ Sistema deve possibilitar múltiplos acessos.
 | **[NF003] Usabilidade**                                    | Todas             | Desejável  | 3                       |
 | **[NF004] Disponibilidade**                                | Todas             | Importante | 5                       |
 
+# Protótipo do sistema JumboETL
+
+https://www.figma.com/proto/VfjjKzdffprqwnogYyka9D/Untitled?node-id=1%3A2&scaling=contain
+
+![](https://i.imgur.com/8vcfQCx.gif)
+
+
 
