@@ -19,11 +19,11 @@
 ### O usuario é capaz de realizar o upload de acessar nossa plateforma e realizar o upload arquivos no servidor, para mais tarde os arquivos serem salvos no banco de de dados. 
 
 # **Como ultilizar o JumboETL** 
-### Abra o JumboETL. Para fazer o upload de um arquivo shapefile, clique eme "importar".
+### Abra o JumboETL. Para fazer o upload de um arquivo shapefile, clique em "importar".
 
 <img width="60%" alignt="center" src="https://i.ibb.co/KWXfs9G/1.png" alt="1"> 
 
-### Um janela de busca será aberta. Selecione o arquivo shapefile que deseja importar, e clique em "Abrir".
+### Uma janela de busca será aberta. Selecione o arquivo shapefile que deseja importar, e clique em "Abrir".
 
 <img width="60%" alignt="center" src="https://i.ibb.co/6HhNRv1/2.png" alt="2"> 
 
