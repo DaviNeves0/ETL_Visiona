@@ -16,7 +16,7 @@
 **Developer:** Thalles Santos Torres  
 
 # **Sprint 1**
-### O usuario é capaz de realizar o upload de acessar nossa plateforma e realizar o upload arquivos no servidor, para mais tarde os arquivos serem salvos no banco de de dados. 
+### O usuario é capaz de realizar o upload de acessar nossa plateforma e realizar o upload de arquivos no servidor, para mais tarde os arquivos serem salvos no banco de de dados. 
 
 # **Como ultilizar o JumboETL** 
 ### Abra o JumboETL. Para fazer o upload de um arquivo shapefile, clique em "importar".
