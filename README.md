@@ -110,7 +110,7 @@ Sistema deve possibilitar múltiplos acessos.
 
 https://www.figma.com/proto/VfjjKzdffprqwnogYyka9D/Untitled?node-id=1%3A2&scaling=contain
 
-![](https://i.imgur.com/8vcfQCx.gif)
+
 
 
 
