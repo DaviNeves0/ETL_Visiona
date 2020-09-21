@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="git:">
+    <title>Visiona - Template</title>
+    <link href= "/public/assets/style.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" href=".\public\icon.jpeg">
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <div class="import_banner">
+                <form method="POST" enctype="multipart/form-data" action="/upload">
+                  <label for='arquivo' id="nomedocampo" >IMPORTAR</label> 
+                  <input type="file" name="arquivo" id="arquivo">
+                  <div class="nomes"></div>
+                  <input type="submit" value="Upload">
+                </form>
+                <button onclick="mostrar()" id="bnt" >Ver arquivo selecionado </button> 
+                <script>
+                    function mostrar(){
+                    var nome = $("#arquivo").val();
+                    newname = nome.replace('fakepath',' ');
+                    $(".nomes").html(newname);
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
