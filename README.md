@@ -108,8 +108,9 @@ Sistema deve possibilitar múltiplos acessos.
 
 # Protótipo do sistema JumboETL
 
-https://www.figma.com/proto/VfjjKzdffprqwnogYyka9D/Untitled?node-id=1%3A2&scaling=contain
+https://www.figma.com/proto/L8isFQGk0foNhgbTkcVUB3/Untitled-(Copy)?node-id=1%3A2&scaling=contain
 
+![](https://imgur.com/gallery/cB97UMj)
 
 
 
