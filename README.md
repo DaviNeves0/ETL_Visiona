@@ -35,9 +35,21 @@
 
 <img width="60%" alignt="center" src="https://i.ibb.co/7KCrFv9/4.png" alt="4"> 
 
-###Pronto, o upload já está feito. Clique em "Carregar outros arquivos" se deseja salvar mais arquivos.
+### Pronto, o upload já está feito. Clique em "Carregar outros arquivos" se deseja salvar mais arquivos.
 
 <img width="60%" alignt="center" src="https://i.ibb.co/GH9ZdRm/5.png" alt="5"> 
+
+### Para maior entendimento do processo:
+
+<img src="https://i.ibb.co/P5NyKWG/2020-09-20-20-45-18.gif" alt="2020" border="0">
+
+### **Tecnologias**
+#### Node.js
+#### HTML / CSS
+
+ 
+
+
 
 
 
