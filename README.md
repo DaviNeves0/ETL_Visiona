@@ -34,7 +34,7 @@ O sistema permite gerenciar os arquivos de dados georreferenciados no formato Sh
 **Analista GIS:** Possui acesso ao acervo de arquivos armazenados e pode armazenar arquivos.
 
 # Casos de Uso
-![](https://i.imgur.com/8NKygdO.png)
+![](https://imgur.com/gallery/Rir2fZ6.png)
 
 # Requisitos
 
