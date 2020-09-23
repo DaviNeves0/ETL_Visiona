@@ -1,5 +1,3 @@
-# EM CORREÇÃO
-
 # Projeto Integrador 3o. ADS A - JumboETL
 
 Projeto da faculdade FATEC com parceria da empresa Visiona Tecnologia Espacial S.A.
@@ -41,38 +39,35 @@ O sistema permite gerenciar os arquivos de dados georreferenciados no formato Sh
 # Requisitos
 
 ### Requisitos Funcionais
-**[RF001] Acessar plataforma mini-ETL**  
-O usuário deve ser capaz de acessar através de seu navegador padrão página para interagir com banco específico de dados georreferenciados. A conexão com o banco deve ser de forma automática e sem necessidade de entrada de login e senha pelo usuário.
+**[RF001] Conectar com o banco**  
+A configuração para a conexão com o banco deve ser de forma simples e intuitiva.
 
-**[RF002] Realizar upload de arquivos Shapefile**  
-O usuário deve ser capaz de selecionar arquivos de seu dispositivo de acesso para serem carregados para o sistema. 
-
-**[RF003] Converter upload para formato PostGIS**  
-Ao realizar o upload e selecionar as configurações, o sistema fará a conversão para PostGIS e os dados serão gravados no banco.
-
-**[RF004] Escolher configurações de upload**  
-Ao realizar o upload, o sistema informa os campos existentes e o usuário escolhe o campo desejado para o campo de destino ou deixa em branco para não adicionar.
-
-**[RF005] Registar metadados de upload**  
-Preencher metadados ao selecionar opção de importação: Nome do arquivo, Nome do Autor do Upload, Categoria do Dado, e armazenar Data e Hora de Upload.
-
-**[RF006] Listar dados disponíveis no banco**  
+**[RF002] Listar dados disponíveis no banco**  
 Acessar página que liste automaticamente todos os dados disponíveis no banco.
 
-**[RF007] Fazer download de dados em formato Shapefile**  
+**[RF003] Selecionar tabela do banco para inserção de dados**  
+Usuário deve ser capaz de escolher tabela específica do banco que receberá os dados carregados do arquivo Shapefile.
+
+**[RF004] Realizar upload de arquivos Shapefile**  
+O usuário deve ser capaz de selecionar arquivos de seu dispositivo de acesso para serem carregados para o sistema, sendo o mesmo capaz de manipular dados em ponto, linhas, polígonos e arquivos extras.
+
+**[RF005] Configurar parametrização de inserção**  
+Ao realizar o upload, o sistema informa os campos existentes e o usuário pode configurar as correspondências das colunas do dado (configuração DE-PARA).
+
+**[RF006] Converter para formato PostGIS**  
+Ao realizar o upload e selecionar as configurações, o sistema fará a conversão para PostGIS e os dados serão gravados no banco.
+
+**[RF007] Selecionar tabela do banco para inserção de dados**  
+Usuário deve ser capaz de escolher tabela específica do banco que extrairá os dados para o arquivo Shapefile.
+
+**[RF008] Configurar parametrização de extração**  
+O usuário pode configurar quais colunas deseja extrair para o arquivo Shapefile (configuração DE-PARA).
+
+**[RF009] Realizar download de dados em formato Shapefile**  
 O usuário deve ser capaz de fazer download dos dados disponíveis diretamente no formato Shapefile.
 
-**[RF008] Busca por dado no banco**  
-Possibilitar a busca por nome, categoria ou data.
-
-**[RF009] Alterar metadados do banco**  
-O usuário deve ser capaz de alterar dados disponíveis no banco: Nome do arquivo, Nome do Autor do Upload, Categoria do Dado.
-
-**[RF010] Excluir dados do banco**  
-O usuário deve ser capaz de excluir dados disponíveis no banco.
-
-**[RF011] Visualizar dados disponíveis no banco**  
-O usuário deve ser capaz de visualizar no formato mapa, os dados disponíveis no banco.
+**[RF010] Buscar por dado no banco**  
+Possibilitar a busca por tabela.
 
 ###	Requisitos Não-Funcionais
 
@@ -90,27 +85,18 @@ Sistema deve possibilitar múltiplos acessos.
 
 # Backlog
 
-| Requisitos                                                 | Sprint (de 1 a 6) | Prioridade | Complexidade (de 1 a 5) |
-| ---------------------------------------------------------- | ----------------- | ---------- | ----------------------- |
-| **[RF001] Acessar plataforma mini-ETL**                    | 1, 2              | Essencial  | 2                       |
-| **[RF002] Realizar upload de arquivos Shapefile no banco** | 1                 | Essencial  | 3                       |
-| **[RF003] Converter upload para formato PostGIS**          | 3                 | Essencial  | 5                       |
-| **[RF004] Escolher configurações de upload**               | 3                 | Essencial  | 5                       |
-| **[RF005] Registar metadados de upload**                   | 2                 | Desejável  | 2                       |
-| **[RF006] Listar dados disponíveis no banco**              | 2                 | Essencial  | 2                       |
-| **[RF007] Fazer download de dados em formato Shapefile**   | 4                 | Essencial  | 5                       |
-| **[RF008] Busca por dado no banco**                        | 5                 | Desejável  | 2                       |
-| **[RF009] Alterar metadados do banco**                     | 5                 | Desejável  | 2                       |
-| **[RF010] Excluir dados do banco**                         | 5                 | Importante | 2                       |
-| **[RF011] Visualizar dados disponíveis no banco**          | 6                 | Desejável  | 5                       |
-| **[NF001] Banco de Dados Geográficos PostgreSQL**          | 2, 3, 4, 5, 6     | Essencial  | 2                       |
-| **[NF002] Plataforma Web**                                 | Todas             | Essencial  | 3                       |
-| **[NF003] Usabilidade**                                    | Todas             | Desejável  | 3                       |
-| **[NF004] Disponibilidade**                                | Todas             | Importante | 5                       |
+| Sprint     | O que será entregue | Valor  | 
+| ---------- |  -----------------  |  ----  | 
+|  1         | **Backlog <br/>Protótipo <br/>[RF004] Realizar upload de arquivos Shapefile**  | O usuário consegue carregar para o servidor arquivos Shapefile que serão posteriormente lidos pelo sistema.  | 
+|  2         | **[RF001] Conectar com o banco <br/>[RF002] Listar dados disponíveis no banco <br/>[RF003] Selecionar tabela do banco para inserção de dados <br/>[RF004] Realizar upload de arquivos Shapefile <br/>[RF005] Configurar parametrização de inserção <br/>[RF006] Converter para formato PostGIS <br/>[NF001] Banco de Dados Geográficos PostgreSQL <br/>[NF002] Plataforma Web <br/>[NF003] Usabilidade <br/>[NF004] Disponibilidade <br/>**  | O usuário consegue inserir dados de arquivos Shapefile do tipo Ponto. | | 
+|  3         | **[RF003] Selecionar tabela do banco para inserção de dados <br/>[RF004] Realizar upload de arquivos Shapefile <br/>[RF005] Configurar parametrização de inserção<br/>[RF006] Converter para formato PostGIS <br/>[NF001] Banco de Dados Geográficos PostgreSQL <br/>[NF002] Plataforma Web <br/>[NF003] Usabilidade <br/>[NF004] Disponibilidade <br/>**    | O usuário consegue inserir dados de arquivos Shapefile do tipo Linha.    | 
+|  4         | **[RF003] Selecionar tabela do banco para inserção de dados<br/>[RF004] Realizar upload de arquivos Shapefile <br/>[RF005] Configurar parametrização de inserção <br/>[RF006] Converter para formato PostGIS <br/>[NF001] Banco de Dados Geográficos PostgreSQL <br/>[NF002] Plataforma Web <br/>[NF003] Usabilidade <br/>[NF004] Disponibilidade <br/>** | O usuário consegue inserir dados de arquivos Shapefile do tipo Polígono.|
+|  5         | **[RF007] Selecionar tabela do banco para inserção de dados <br/>[RF009] Realizar download de dados em formato Shapefile <br/>[NF001] Banco de Dados Geográficos PostgreSQL <br/>[NF002] Plataforma Web <br/>[NF003] Usabilidade <br/>[NF004] Disponibilidade <br/>**  | O usuário consegue extrair dados do banco para download no formato de arquivo Shapefile (sem parametrização).  | 
+|  6         | **[RF007] Selecionar tabela do banco para inserção de dados <br/>[RF008] Configurar parametrização de extração <br/>[RF009] Realizar download de dados em formato Shapefile <br/>[RF010] Buscar por dado no banco <br/>[NF001] Banco de Dados Geográficos PostgreSQL <br/>[NF002] Plataforma Web <br/>[NF003] Usabilidade <br/>[NF004]Disponibilidade <br/>**   | O usuário consegue extrair dados do banco para download no formato de arquivo Shapefile (com parametrização).<br/>O usuário consegue buscar por tabela específica no banco. | 
 
 # Protótipo do sistema JumboETL
 
-https://www.figma.com/proto/L8isFQGk0foNhgbTkcVUB3/Untitled-(Copy)?node-id=1%3A2&scaling=contain
+https://www.figma.com/proto/GncjZvh6OUpswEQtNUTe2t/JumboETL?node-id=216%3A0&scaling=contain
 
 ![](https://imgur.com/HR5dlrr.gif)
 
