@@ -96,7 +96,7 @@ Sistema deve possibilitar múltiplos acessos.
 
 # Protótipo do sistema JumboETL
 
-https://www.figma.com/proto/GncjZvh6OUpswEQtNUTe2t/JumboETL?node-id=216%3A0&scaling=contain
+https://www.figma.com/proto/GncjZvh6OUpswEQtNUTe2t/JumboETL?node-id=216%3A0&scaling=contain 
 
 Configurando conexão com base de dados e inserindo dados em tabela do banco:
 
