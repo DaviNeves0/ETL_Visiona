@@ -98,7 +98,13 @@ Sistema deve possibilitar múltiplos acessos.
 
 https://www.figma.com/proto/GncjZvh6OUpswEQtNUTe2t/JumboETL?node-id=216%3A0&scaling=contain
 
-![](https://imgur.com/HR5dlrr.gif)
+Configurando conexão com base de dados e inserindo dados em tabela do banco:
+
+![](https://imgur.com/p8Le3Zg.gif)
+
+Extraindo dados de tabela do banco: 
+
+![](https://imgur.com/67tbvlj.gif)
 
 
 
