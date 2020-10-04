@@ -36,6 +36,8 @@ O usuário consegue se conectar ao banco de dados PostgreSQL/PostGIS e enviar ar
     <ul>
       <li>Python 3</li>
           - Bibliotecas: Flask, pyshp, psycopg2-binary
+      <li>GDAL</li>
+          - Utilitário: ogr2ogr
       <li>PostgreSQL</li>
           - Extensão: PostGIS
       <li>Node.js</li>
