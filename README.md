@@ -124,6 +124,19 @@ pip3 install -r requirements.txt
 ```
   
 </ul>
+
+<ul>
+  <li><b>PostgreSQL e PostGIS</b></li>
+  &emsp;Realizar o download na página abaixo de acordo com o seu SO.<br/>
+  https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+  
+  **Observação:** Para a instalação da extensão PostGIS, é necessário marcar a opção de categoria <i>Spatial Extensions</i> e escolher a versão, conforme imagem abaixo.
+  
+  <img src  = "https://i.stack.imgur.com/FvTZm.png">
+  
+  
+  
+</ul>
     
 
 ## Demonstração
