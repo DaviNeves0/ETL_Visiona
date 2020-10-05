@@ -1,0 +1,78 @@
+
+
+
+.container-listar-tabela{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    margin: 3vh;
+
+}
+
+.container-listar-tabela p {
+    color: white;
+    margin-right: 30vh;
+    margin-top: 3.5vh;
+
+
+}
+
+.container-listar-tabela button{
+    cursor: pointer;
+    width:100px;
+    height: 50px;
+    background: #00FFE0;
+    border-radius: 20px;
+    margin-right: 5vh;
+}
+
+.container-listar-tabela button:hover{
+    filter: brightness(90%);
+}
+
+.container-tabela{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    margin: 10vh;
+}
+
+
+
+.container-header{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    background-color: #373A52;
+    width: 100%;
+    height: 100px;
+    /* border-radius: 10px; */
+    align-items: center;
+}
+
+.container-header p{
+    color: white;
+    margin-left: 550px;
+}
+
+.busca-header{
+    padding: 30px;
+}
+
+.btnBusca{
+    cursor: pointer;
+    width: 234px;
+    height: 50px;
+    background: #00FFE0;
+    border-radius: 20px;
+    margin-left: 10px;
+
+}
+
+.container-header input {
+    height: 50px;
+}
+
