@@ -140,3 +140,7 @@ pip3 install -r requirements.txt
     
 
 ## Demonstração
+
+## Burndown Chart
+<img src  = "https://i.imgur.com/DPX5SBx.png">
+
