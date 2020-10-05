@@ -29,7 +29,6 @@ O usuário consegue se conectar ao banco de dados PostgreSQL/PostGIS e enviar ar
       <li>HTML</li>
       <li>CSS</li>
       <li>React</li>
-      <li>Flask</li>
      </ul>
   
   <li><b>Back-End</b></li>
@@ -39,8 +38,7 @@ O usuário consegue se conectar ao banco de dados PostgreSQL/PostGIS e enviar ar
       <li>GDAL</li>
           - Utilitário: ogr2ogr
       <li>PostgreSQL</li>
-          - Extensão: PostGIS
-      <li>Node.js</li>
+          - Extensão: PostGIS   
   </ul>
 </ul>
 
