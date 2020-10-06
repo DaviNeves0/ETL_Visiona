@@ -36,11 +36,6 @@ def login():
     global host
     global porta
     global database
-    # usuario = "postgres" # essa linha deve ser removida posteriormente
-    # senha = "postgres" # essa linha deve ser removida posteriormente
-    # host = "127.0.0.1" # essa linha deve ser removida posteriormente
-    # porta = "5432" # essa linha deve ser removida posteriormente
-    # database = "meuteste" # essa linha deve ser removida posteriormente
     usuario = request.json["usuario"]
     senha = request.json["senha"]
     host = request.json["host"]
@@ -63,8 +58,6 @@ def upload():
     arquivo.save(caminho)
     arquivo_shp_end = arquivo.filename
     arquivo_shp_end = (caminho[:-4] + ".shp")
-    print (arquivo_shp)
-    # arquivo_shp = r"D:\geoft_bho_2017_ponto_drenagem.shp" # essa linha deve ser removida posteriormente
     return {'upload': True}
 
 
@@ -83,9 +76,7 @@ def get_col_names_db():
 @app.route('/get_tab_name', methods=['POST'])
 def get_tab_name():
     global tabela
-    # tabela = "geoft_bho_2017_ponto_drenagem" # essa linha deve ser removida posteriormente
     tabela = request.json["tabela"]
-    print (tabela)
     return {'get_tab_name': True}
 
 
@@ -99,9 +90,7 @@ def get_tabelas():
 @app.route('/inserir', methods=['GET', 'POST'])
 def inserir():
     global colunas_selecionadas
-    # colunas_selecionadas = ['', 'idponto', '', '', '', 'dsversao'] # essa linha deve ser removida posteriormente
     colunas_selecionadas = request.json["colunas_selecionadas"]
-    print (colunas_selecionadas)
     try:
         parametrizar = conexao.parametrizar(
             colunas_selecionadas, colunas_tabela)
