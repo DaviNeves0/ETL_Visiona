@@ -1,4 +1,4 @@
- #     Sistema web JumboETL
+# Sistema web JumboETL
  ![](https://i.imgur.com/GVAU8Y1.png)
 Projeto da faculdade FATEC com parceria da empresa Visiona Tecnologia Espacial S.A.
 
@@ -13,8 +13,10 @@ Projeto da faculdade FATEC com parceria da empresa Visiona Tecnologia Espacial S
 **Developer:** Pedro Cruz Oliveira Araújo  
 **Developer:** Thalles Santos Torres  
 
-# Sprints
+# Tecnologias
+![](https://i.imgur.com/PsepDY6.jpg)
 
+# Sprints
 | Sprint                                                              | Data de Entrega |
 | ------------------------------------------------------------------- | --------------- |
 | [Sprint 1](https://github.com/DaviNeves0/ETL_Visiona/tree/sprint-1) | 20 set 2020     |
@@ -35,25 +37,11 @@ O sistema permite gerenciar os arquivos de dados georreferenciados no formato Sh
 # Casos de Uso
 ![](https://imgur.com/3UwyV6f.png)
 
-# Requisitos
-
-![](https://i.imgur.com/pqq77wQ.png)
-
-
 # Backlog
-
-| Sprint     | O que será entregue | Valor  | 
-| ---------- |  -----------------  |  ----  | 
-|  1         | **Backlog <br/>Protótipo <br/>[RF004] Realizar upload de arquivos Shapefile**  | O usuário consegue carregar para o servidor arquivos Shapefile que serão posteriormente lidos pelo sistema.  | 
-|  2         | **[RF001] Conectar com o banco <br/>[RF002] Listar dados disponíveis no banco <br/>[RF003] Selecionar tabela do banco para inserção de dados <br/>[RF004] Realizar upload de arquivos Shapefile <br/>[RF005] Configurar parametrização de inserção <br/>[RF006] Converter para formato PostGIS <br/>[NF001] Banco de Dados Geográficos PostgreSQL <br/>[NF002] Plataforma Web <br/>[NF003] Usabilidade <br/>[NF004] Disponibilidade <br/>**  | O usuário consegue inserir dados de arquivos Shapefile do tipo Ponto. | | 
-|  3         | **[RF003] Selecionar tabela do banco para inserção de dados <br/>[RF004] Realizar upload de arquivos Shapefile <br/>[RF005] Configurar parametrização de inserção<br/>[RF006] Converter para formato PostGIS <br/>[NF001] Banco de Dados Geográficos PostgreSQL <br/>[NF002] Plataforma Web <br/>[NF003] Usabilidade <br/>[NF004] Disponibilidade <br/>**    | O usuário consegue inserir dados de arquivos Shapefile do tipo Linha.    | 
-|  4         | **[RF003] Selecionar tabela do banco para inserção de dados<br/>[RF004] Realizar upload de arquivos Shapefile <br/>[RF005] Configurar parametrização de inserção <br/>[RF006] Converter para formato PostGIS <br/>[NF001] Banco de Dados Geográficos PostgreSQL <br/>[NF002] Plataforma Web <br/>[NF003] Usabilidade <br/>[NF004] Disponibilidade <br/>** | O usuário consegue inserir dados de arquivos Shapefile do tipo Polígono.|
-|  5         | **[RF007] Selecionar tabela do banco para inserção de dados <br/>[RF009] Realizar download de dados em formato Shapefile <br/>[NF001] Banco de Dados Geográficos PostgreSQL <br/>[NF002] Plataforma Web <br/>[NF003] Usabilidade <br/>[NF004] Disponibilidade <br/>**  | O usuário consegue extrair dados do banco para download no formato de arquivo Shapefile (sem parametrização).  | 
-|  6         | **[RF007] Selecionar tabela do banco para inserção de dados <br/>[RF008] Configurar parametrização de extração <br/>[RF009] Realizar download de dados em formato Shapefile <br/>[RF010] Buscar por dado no banco <br/>[NF001] Banco de Dados Geográficos PostgreSQL <br/>[NF002] Plataforma Web <br/>[NF003] Usabilidade <br/>[NF004]Disponibilidade <br/>**   | O usuário consegue extrair dados do banco para download no formato de arquivo Shapefile (com parametrização).<br/>O usuário consegue buscar por tabela específica no banco. | 
+![](https://i.imgur.com/W6hY6KK.png)
 
 # Protótipo do sistema JumboETL
-
-https://www.figma.com/proto/GncjZvh6OUpswEQtNUTe2t/JumboETL?node-id=216%3A0&scaling=contain 
+**Confira o prototipo da aplicação:** https://www.figma.com/proto/4NYTdae4FH7FnoFveT1LsP/JumboETL?node-id=216%3A0&scaling=contain
 
 Configurando conexão com base de dados e inserindo dados em tabela do banco:
 
@@ -62,6 +50,5 @@ Configurando conexão com base de dados e inserindo dados em tabela do banco:
 Extraindo dados de tabela do banco: 
 
 ![](https://imgur.com/67tbvlj.gif)
-
 
 
