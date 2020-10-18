@@ -1,23 +1,66 @@
-### Projeto da faculdade FATEC com parceria da empresa Visiona Tecnologia Espacial S.A
-
+# Sistema web JumboETL
 ![](https://i.imgur.com/pmG7ERF.png)
 
-
-## Team
-
-![](https://i.imgur.com/xrV0sM4.jpg)
-
-
-## Sprint 2
-O usuário consegue se conectar ao banco de dados PostgreSQL/PostGIS e enviar arquivos Shapefile do tipo ponto para ele. Assim como, visualizar os Shapefiles disponíveis e selecionar as colunas da tabela que gostaria de visualizar.
+# Sprint 2
 ![](https://i.imgur.com/eiujiX8.png)
 
+# Demonstração
 
-## Tecnologias
+# Burndown Chart
+![](https://i.imgur.com/Yu6hzUM.png)
 
-![](https://i.imgur.com/6gNoAbN.jpg)
+<ul>
+  <li><b>Tarefas</b></li>
 
-## Instruções de instalação
+1. Desenvolver elementos visuais de design
+2. Configurar Flask
+3. Programar função conectar
+4. Programar função inserir -> ponto
+5. Programar função inserir -> linha
+6. Programar função inserir -> poligono
+7. Programar função get_tables
+8. Programar função get_col_names_db
+9. Programar função get_col_names_shp
+10. Programar função parametrizar
+11. Configurar React
+12. Progamar página login
+13. Progamar página lista
+14. Progamar página inserir
+15. Testes
+16. Documentação do Github
+17. Preparar apresentacao
+
+</ul>
+
+# Tecnologias
+![](https://i.imgur.com/w3jtxBV.jpg)
+
+<ul>
+  <li><b>Front-End</b></li>
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>Javascript</li>
+          - Bibliotecas: React, Axios, Ant Design
+    </ul>
+  
+  <li><b>Back-End</b></li>
+    <ul>
+      <li>Python 3</li>
+          - Bibliotecas: Flask, pyshp, psycopg2, flask-cors, python-dotenv
+      <li>GDAL</li>
+          - Utilitário: ogr2ogr
+      <li>PostgreSQL</li>
+          - Extensão: PostGIS   
+    </ul>
+</ul>
+
+# Backlog
+![](https://i.imgur.com/W6hY6KK.png)
+
+# Instruções de instalação
+
+
 
 <ul>
   <li><b>Python 3</b></li>
@@ -35,24 +78,24 @@ $ sudo apt install pip3
   <li><b>Node.js</b></li>
     <ul>
     <li><b>Windows</b></li> Realizar o download na página abaixo.<br/>https://nodejs.org/en/download/
-    <li><b>Linux</b></li>Executar o comando. <br/>
+    <li><b>Linux</b></li>Executar o comando.<br/>
     
 ```bash
 $ sudo apt install nodejs
 ```    
   </ul>
-</ul>  
+</ul>
 
 <ul>
   <li><b>Virtualenv</b></li>
   <ul>
-    <li><b>Windows</b></li> Executar o comando<br/>
+    <li><b>Windows</b></li> Executar o comando.<br/>
    
 ```bash
-$ pip3 install virtualenv
+> pip install virtualenv
 ```
 
-   <li><b>Linux</b></li>Executar o comando. <br/>  
+   <li><b>Linux</b></li>Executar o comando.<br/>  
  
 ```bash
 # Debian, Ubuntu
@@ -66,58 +109,59 @@ $ sudo pacman -S python-virtualenv
 ```
 
   </ul>  
-</ul>    
+</ul>
  
 <ul>
-  <li><b>Criação do ambiente virtual</b></li>
-    
-   Criando um diretório para o ambiente.
-    
+
+<li><b>Criação do ambiente virtual</b></li>
+
+<ul>
+
+<li><b>Windows</b></li>
+
 ```bash
-$ mkdir myproject
-$ cd myproject
-$ python3 -m venv venv
-```
-  No Windows
-```bash
-$ py -3 -m venv venv
+> py -m venv env
+> .\env\Scripts\activate
 ```
 
-  Ativando o virtualenv
+   Instalar as bibliotecas no virtualenv
 ```bash
-$ . venv/bin/activate
+> pip install -r requirements.txt
 ```
 
-  No Windows
+<li><b>Linux</b></li>
+
 ```bash
-> venv\Scripts\activate
+$ python3 -m venv env
+$ source env/bin/activate
 ```
 
-  Instalar as bibliotecas no virtualenv
+   Instalar as bibliotecas no virtualenv
 ```bash
-pip3 install -r requirements.txt
+$ pip3 install -r requirements.txt
 ```
-  
+
+</ul>
+
 </ul>
 
 <ul>
   <li><b>PostgreSQL e PostGIS</b></li>
-  &emsp;Realizar o download na página abaixo de acordo com o seu SO.<br/>
+  <ul>
+  Realizar o download na página abaixo de acordo com o seu SO.<br/>
   https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
   
+  <p></p>
+  
   **Observação:** Para a instalação da extensão PostGIS, é necessário marcar a opção de categoria <i>Spatial Extensions</i> e escolher a versão, conforme imagem abaixo.
+  </ul>
   
-  <img src  = "https://i.stack.imgur.com/FvTZm.png">
-  
-  
-  
+  <center><img src  = "https://i.stack.imgur.com/FvTZm.png"></center>
+
 </ul>
-    
 
-## Demonstração
 
-## Burndown Chart
-<img src  = "https://i.imgur.com/DPX5SBx.png">
+
 
 
 
