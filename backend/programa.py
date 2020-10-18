@@ -41,11 +41,8 @@ def login():
     host = request.json["host"]
     porta = request.json["porta"]
     database = request.json["database"]
-    try:
-        conexao.conectar(host, porta, usuario, database, senha)
-        return {"conexao": True}
-    except:
-        return {"conexao": False}
+    conexao.conectar(host, porta, usuario, database, senha)
+    return {"conexao": True}
 
 
 @app.route('/upload', methods=['GET', 'POST'])
@@ -53,10 +50,9 @@ def upload():
     global arquivo_shp
     global arquivo_shp_end
     arquivo = request.files['shp']
-    arquivo_shp = arquivo.filename[:-4] + ".shp"
     caminho = os.path.join(pasta_shp, secure_filename(arquivo.filename))
     arquivo.save(caminho)
-    arquivo_shp_end = arquivo.filename
+    arquivo_shp = arquivo.filename[:-4] + ".shp"
     arquivo_shp_end = (caminho[:-4] + ".shp")
     return {'upload': True}
 
@@ -91,11 +87,8 @@ def get_tabelas():
 def inserir():
     global colunas_selecionadas
     colunas_selecionadas = request.json["colunas_selecionadas"]
-    try:
-        parametrizar = conexao.parametrizar(
-            colunas_selecionadas, colunas_tabela)
-        conexao.inserir(parametrizar, host, usuario,
-                        database, senha, arquivo_shp_end, arquivo_shp, tabela)
-        return {'resultado': True}
-    except:
-        return {'resultado': False}
+    parametrizar = conexao.parametrizar(
+        colunas_selecionadas, colunas_tabela)
+    inserir = conexao.inserir(parametrizar, host, usuario,
+                    database, senha, arquivo_shp_end, arquivo_shp, tabela)
+    return {'resultado': inserir}
