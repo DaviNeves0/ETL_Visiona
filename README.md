@@ -11,25 +11,25 @@
 
 <ul>
   <li><b>Tarefas</b></li>
-
-1. Desenvolver elementos visuais de design
-2. Configurar Flask
-3. Programar função conectar
-4. Programar função inserir -> ponto
-5. Programar função inserir -> linha
-6. Programar função inserir -> poligono
-7. Programar função get_tables
-8. Programar função get_col_names_db
-9. Programar função get_col_names_shp
-10. Programar função parametrizar
-11. Configurar React
-12. Progamar página login
-13. Progamar página lista
-14. Progamar página inserir
-15. Testes
-16. Documentação do Github
-17. Preparar apresentacao
-
+  <ol>
+    <li>Desenvolver elementos visuais de design</li>
+    <li>Configurar Flask</li>
+    <li>Programar função conectar</li>
+    <li>Programar função inserir -> ponto</li>
+    <li>Programar função inserir -> linha</li>
+    <li>Programar função inserir -> poligono</li>
+    <li>Programar função get_tables</li>
+    <li>Programar função get_col_names_db</li>
+    <li>Programar função get_col_names_shp</li>
+    <li>Programar função parametrizar</li>
+    <li>Configurar React</li>
+    <li>Progamar página login</li>
+    <li>Progamar página lista</li>
+    <li>Progamar página inserir</li>
+    <li>Testes</li>
+    <li>Documentação do Github</li>
+    <li>Preparar apresentacao</li>
+  </ol>
 </ul>
 
 # Tecnologias
