@@ -1,4 +1,4 @@
- # Projeto Integrador 3o. ADS A 
+ #     Sistema web JumboETL
 
 ![](https://i.imgur.com/4iloayW.png)
 
@@ -20,11 +20,10 @@ Projeto da faculdade FATEC com parceria da empresa Visiona Tecnologia Espacial S
 | Sprint                                                              | Data de Entrega |
 | ------------------------------------------------------------------- | --------------- |
 | [Sprint 1](https://github.com/DaviNeves0/ETL_Visiona/tree/sprint-1) | 20 set 2020     |
-| [Sprint 2](https://github.com/DaviNeves0/ETL_Visiona/tree/sprint-2) | 04 out 2020     |
-| [Sprint 3](https://github.com/DaviNeves0/ETL_Visiona/tree/sprint-3) | 18 out 2020     |
-| [Sprint 4](https://github.com/DaviNeves0/ETL_Visiona/tree/sprint-4) | 01 nov 2020     |
-| [Sprint 5](https://github.com/DaviNeves0/ETL_Visiona/tree/sprint-5) | 15 nov 2020     |
-| [Sprint 6](https://github.com/DaviNeves0/ETL_Visiona/tree/sprint-6) | 29 nov 2020     |
+| [Sprint 2](https://github.com/DaviNeves0/ETL_Visiona/tree/sprint-2) | 18 out 2020     |
+| [Sprint 3](https://github.com/DaviNeves0/ETL_Visiona/tree/sprint-3) | 08 nov 2020     |
+| [Sprint 4](https://github.com/DaviNeves0/ETL_Visiona/tree/sprint-4) | 29 nov 2020     |
+
 
 # Desafio
 A empresa parceira enfrenta dificuldade de acessos mútuos de funcionários ao software que atualmente utiliza para trabalhar com dados georreferenciados, deste problema surge a ideia do projeto, a proposta de um sistema que faça a conversão de arquivos Shapefile e comunique-se com o banco para inserir ou recuperar esses dados, por meio de uma interface gráfica simples e intuitiva.
@@ -65,6 +64,5 @@ Configurando conexão com base de dados e inserindo dados em tabela do banco:
 Extraindo dados de tabela do banco: 
 
 ![](https://imgur.com/67tbvlj.gif)
-
 
 
