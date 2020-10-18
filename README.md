@@ -1,4 +1,6 @@
-# Projeto Integrador 3o. ADS A - JumboETL
+ # Projeto Integrador 3o. ADS A 
+
+![](https://i.imgur.com/4iloayW.png)
 
 Projeto da faculdade FATEC com parceria da empresa Visiona Tecnologia Espacial S.A.
 
@@ -38,50 +40,8 @@ O sistema permite gerenciar os arquivos de dados georreferenciados no formato Sh
 
 # Requisitos
 
-### Requisitos Funcionais
-**[RF001] Conectar com o banco**  
-A configuração para a conexão com o banco deve ser de forma simples e intuitiva.
+![](https://i.imgur.com/pqq77wQ.png)
 
-**[RF002] Listar dados disponíveis no banco**  
-Acessar página que liste automaticamente todos os dados disponíveis no banco.
-
-**[RF003] Selecionar tabela do banco para inserção de dados**  
-Usuário deve ser capaz de escolher tabela específica do banco que receberá os dados carregados do arquivo Shapefile.
-
-**[RF004] Realizar upload de arquivos Shapefile**  
-O usuário deve ser capaz de selecionar arquivos de seu dispositivo de acesso para serem carregados para o sistema, sendo o mesmo capaz de manipular dados em ponto, linhas, polígonos e arquivos extras.
-
-**[RF005] Configurar parametrização de inserção**  
-Ao realizar o upload, o sistema informa os campos existentes e o usuário pode configurar as correspondências das colunas do dado (configuração DE-PARA).
-
-**[RF006] Converter para formato PostGIS**  
-Ao realizar o upload e selecionar as configurações, o sistema fará a conversão para PostGIS e os dados serão gravados no banco.
-
-**[RF007] Selecionar tabela do banco para inserção de dados**  
-Usuário deve ser capaz de escolher tabela específica do banco que extrairá os dados para o arquivo Shapefile.
-
-**[RF008] Configurar parametrização de extração**  
-O usuário pode configurar quais colunas deseja extrair para o arquivo Shapefile (configuração DE-PARA).
-
-**[RF009] Realizar download de dados em formato Shapefile**  
-O usuário deve ser capaz de fazer download dos dados disponíveis diretamente no formato Shapefile.
-
-**[RF010] Buscar por dado no banco**  
-Possibilitar a busca por tabela.
-
-###	Requisitos Não-Funcionais
-
-**[NF001] Banco de Dados Geográficos PostgreSQL**  
-Sistema deve estar integrado com o formato PostGIS em banco de dados PostgresSQL
-
-**[NF002] Plataforma Web**  
-Sistema acessível por navegadores.
-
-**[NF003] Usabilidade**  
-Sistema deve possuir interface objetiva e fácil de utilizar.
-
-**[NF004] Disponibilidade**  
-Sistema deve possibilitar múltiplos acessos.
 
 # Backlog
 
