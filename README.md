@@ -1,5 +1,6 @@
 # Sistema web JumboETL
 ![](https://i.imgur.com/pmG7ERF.png)
+Projeto da faculdade FATEC com parceria da empresa Visiona Tecnologia Espacial S.A.
 
 # Sprint 2
 ![](https://i.imgur.com/eiujiX8.png)
@@ -11,25 +12,23 @@
 
 <ul>
   <li><b>Tarefas</b></li>
-  <ol>
-    <li>Desenvolver elementos visuais de design</li>
-    <li>Configurar Flask</li>
-    <li>Programar função conectar</li>
-    <li>Programar função inserir -> ponto</li>
-    <li>Programar função inserir -> linha</li>
-    <li>Programar função inserir -> poligono</li>
-    <li>Programar função get_tables</li>
-    <li>Programar função get_col_names_db</li>
-    <li>Programar função get_col_names_shp</li>
-    <li>Programar função parametrizar</li>
-    <li>Configurar React</li>
-    <li>Progamar página login</li>
-    <li>Progamar página lista</li>
-    <li>Progamar página inserir</li>
-    <li>Testes</li>
-    <li>Documentação do Github</li>
-    <li>Preparar apresentacao</li>
-  </ol>
+    1. Desenvolver elementos visuais de design<br/>
+    2. Configurar Flask<br/>
+    3. Programar função conectar<br/>
+    4. Programar função inserir -> ponto<br/>
+    5. Programar função inserir -> linha<br/>
+    6. Programar função inserir -> poligono<br/>
+    7. Programar função get_tables<br/>
+    8. Programar função get_col_names_db<br/>
+    9. Programar função get_col_names_shp<br/>
+    10. Programar função parametrizar<br/>
+    11. Configurar React<br/>
+    12. Progamar página login<br/>
+    13. Progamar página lista<br/>
+    14. Progamar página inserir<br/>
+    15. Testes<br/>
+    16. Documentação do Github<br/>
+    17. Preparar apresentacao
 </ul>
 
 # Tecnologias
@@ -155,13 +154,8 @@ $ pip3 install -r requirements.txt
   
   **Observação:** Para a instalação da extensão PostGIS, é necessário marcar a opção de categoria <i>Spatial Extensions</i> e escolher a versão, conforme imagem abaixo.
   </ul>
-  
-  <center><img src  = "https://i.stack.imgur.com/FvTZm.png"></center>
-
 </ul>
 
-
-
-
+<p align="center"><img src  = "https://i.stack.imgur.com/FvTZm.png"></center></p>
 
 
