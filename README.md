@@ -1,46 +1,22 @@
 
 ### Projeto da faculdade FATEC com parceria da empresa Visiona Tecnologia Espacial S.A
 
-<p align="center">
-  <img src="https://i.ibb.co/7CQBMHN/icon.jpg" alt="drawing" width="250" />
-</p>
+![](https://i.imgur.com/JdTsc5X.png)
+
 
 ## Team
-<ul>
-  <li><b>Scrum Master/Developer:</b> Davi Silva Martins das Neves</li>
-  <li><b>Product Owner/Developer:</b> João Victor Marinho de Souza</li>
-  <li><b>Developer:</b> Diego Rodrigo da Silva</li>
-  <li><b>Developer:</b> Guilherme Oliveira Pontes Alvarenga</li>
-  <li><b>Developer:</b> Guilherme Madeira da Silveira</li>
-  <li><b>Developer:</b> Henrique Kenji Nawa</li>
-  <li><b>Developer:</b> João Pedro Rabello Brasil de Mecenas</li>
-  <li><b>Developer:</b> Pedro Cruz Oliveira Araújo</li>
-  <li><b>Developer:</b> Thalles Santos Torres</li>
-</ul>
+
+![](https://i.imgur.com/xrV0sM4.jpg)
+
 
 ## Sprint 2
 O usuário consegue se conectar ao banco de dados PostgreSQL/PostGIS e enviar arquivos Shapefile do tipo ponto para ele. Assim como, visualizar os Shapefiles disponíveis e selecionar as colunas da tabela que gostaria de visualizar.
+![](https://i.imgur.com/eiujiX8.png)
+
 
 ## Tecnologias
 
-<ul>
-  <li><b>Front-End</b></li>
-    <ul>
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>React</li>
-     </ul>
-  
-  <li><b>Back-End</b></li>
-    <ul>
-      <li>Python 3</li>
-          - Bibliotecas: Flask, pyshp, psycopg2-binary
-      <li>GDAL</li>
-          - Utilitário: ogr2ogr
-      <li>PostgreSQL</li>
-          - Extensão: PostGIS   
-  </ul>
-</ul>
+![](https://i.imgur.com/6gNoAbN.jpg)
 
 ## Instruções de instalação
 
