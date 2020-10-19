@@ -38,8 +38,6 @@ def upload():
         arquivo.save(arquivo.filename)
     arquivo_shp = "%s.shp" % (arquivo.filename[:-4])
     arquivo_shp_end = "%s\%s" % (pathlib.Path().parent.absolute(), arquivo_shp)
-    print(arquivo_shp)
-    print(arquivo_shp_end)
     return {'upload': True}
 
 
