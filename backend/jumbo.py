@@ -1,20 +1,16 @@
 import os
 import shapefile
 import subprocess
-from psycopg2 import sql, connect
+from psycopg2 import connect
 
 class Jumbo():
-
-
-    def __init__(self):
-        pass
 
 
     # funcao para conectar-se ao banco
     def conectar(self, host, porta, usuario, database, senha):
         print("\tIniciando a conexão")
         print("\t%s %s %s %s %s" % (host, porta, usuario, database, senha))
-        self.conn = connect(user="%s" % (usuario),
+        self.conexao = connect(user="%s" % (usuario),
                                 password="%s" % (senha),
                                 host="%s" % (host),
                                 port="%s" % (porta),
@@ -30,12 +26,12 @@ class Jumbo():
         print("\t%s" % (tabela))
         programa = r"C:\Program Files\QGIS 3.10\bin\ogr2ogr.exe"
         de_para = r"%s from %s" % (parametrizar, arquivo_shp[:-4])
-        conexao = r"PG:host=%s user=%s dbname=%s password=%s" % (host, usuario, database, senha)
+        jb = r"PG:host=%s user=%s dbname=%s password=%s" % (host, usuario, database, senha)
         sf = shapefile.Reader(arquivo_shp_end)
         tipo = sf.shapeTypeName 
         if tipo == "MULTIPOINT":
             print("\tTipo: %s" % (sf.shapeTypeName))
-            command = [programa, "-f", "PostgreSQL", "-nlt", "MULTIPOINT", "-sql", de_para, conexao, arquivo_shp_end, "-nln", tabela]
+            command = [programa, "-f", "PostgreSQL", "-nlt", "MULTIPOINT", "-sql", de_para, jb, arquivo_shp_end, "-nln", tabela]
             print("\t%s" % (command))
             subprocess.check_call(command)
             return "\tSucesso"
@@ -46,13 +42,13 @@ class Jumbo():
             # return os.system(command)
         elif tipo == "POLYLINE":
             print("\tTipo: %s" % (sf.shapeTypeName))
-            command = [programa, "-f", "PostgreSQL", "-nlt", "MULTILINESTRING", "-sql", de_para, conexao, arquivo_shp_end, "-nln", tabela]
+            command = [programa, "-f", "PostgreSQL", "-nlt", "MULTILINESTRING", "-sql", de_para, jb, arquivo_shp_end, "-nln", tabela]
             print("\t%s" % (command))
             subprocess.check_call(command)
             return "\tSucesso"
         elif tipo == "POLYGON":
             print("\tTipo: %s" % (sf.shapeTypeName))
-            command = [programa, "-f", "PostgreSQL", "-nlt", "MULTIPOLYGON", "-sql", de_para, conexao, arquivo_shp_end, "-nln", tabela]
+            command = [programa, "-f", "PostgreSQL", "-nlt", "MULTIPOLYGON", "-sql", de_para, jb, arquivo_shp_end, "-nln", tabela]
             print("\t%s" % (command))
             subprocess.check_call(command)
             return "\tSucesso"
@@ -63,8 +59,8 @@ class Jumbo():
     def get_tables(self):
         print("\tLendo nomes das tabelas do banco")
         tabelas = []
-        conn = self.conn
-        tab_cursor = conn.cursor()
+        conexao = self.conexao
+        tab_cursor = conexao.cursor()
         tab_cursor.execute(r"""SELECT table_name FROM information_schema.tables 
                                WHERE table_schema = 'public'""")
         tab_names = (tab_cursor.fetchall())
@@ -84,8 +80,8 @@ class Jumbo():
         print("\t%s" % (tabela))
         colunas_db = []
         chaves = []
-        conn = self.conn
-        col_cursor = conn.cursor()
+        conexao = self.conexao
+        col_cursor = conexao.cursor()
         col_names_str = r"""SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS 
                             WHERE table_name = '%s';""" % (tabela)
         chvs_prim_str = r"""SELECT column_name 
@@ -135,7 +131,3 @@ class Jumbo():
             select_sql_string = select_sql_string[:-1]
         print ("\tSucesso")
         return select_sql_string
-
-
-    def close(self):
-        self.conn = None

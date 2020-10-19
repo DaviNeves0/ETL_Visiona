@@ -1,48 +1,32 @@
 import jumbo
 import shapefile
 import psycopg2
-import os
-
-from flask import Flask, request, redirect, url_for, render_template, json, Response, jsonify
-from werkzeug.utils import secure_filename
+import pathlib
+from flask import Flask, request, json
 from flask_cors import CORS
+
 
 app = Flask(__name__)
 CORS(app)
 
-pasta_shp = os.path.join(os.getcwd(), 'shp')
-
-arquivo_shp = None
-arquivo_shp_end = None
-tabela = None
-colunas_selecionadas = None
-colunas_tabela = None
-lista_tabelas = None
-
-usuario = None
-senha = None
-host = None
-porta = None
-database = None
-
-conexao = jumbo.Jumbo()
-
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    global conexao
     global usuario
     global senha
     global host
     global porta
     global database
+    global jb
     usuario = request.json["usuario"]
     senha = request.json["senha"]
     host = request.json["host"]
     porta = request.json["porta"]
     database = request.json["database"]
-    conexao.conectar(host, porta, usuario, database, senha)
-    return {"conexao": True}
+    jb = jumbo.Jumbo()
+    jb.conectar(host, porta, usuario, database, senha)
+    print("OK")
+    return {"jb": True}
 
 
 @app.route('/upload', methods=['GET', 'POST'])
@@ -50,22 +34,24 @@ def upload():
     global arquivo_shp
     global arquivo_shp_end
     arquivo = request.files['shp']
-    caminho = os.path.join(pasta_shp, secure_filename(arquivo.filename))
-    arquivo.save(caminho)
-    arquivo_shp = arquivo.filename[:-4] + ".shp"
-    arquivo_shp_end = (caminho[:-4] + ".shp")
+    if arquivo.filename != '':
+        arquivo.save(arquivo.filename)
+    arquivo_shp = "%s.shp" % (arquivo.filename[:-4])
+    arquivo_shp_end = "%s\%s" % (pathlib.Path().parent.absolute(), arquivo_shp)
+    print(arquivo_shp)
+    print(arquivo_shp_end)
     return {'upload': True}
 
 
 @app.route('/get_col_names_shp', methods=['GET'])
 def get_col_names_shp():
-    return {'colunas_shp': conexao.get_col_names_shp(arquivo_shp_end), "arquivo_importado": arquivo_shp_end}
+    return {'colunas_shp': jb.get_col_names_shp(arquivo_shp_end), "arquivo_importado": arquivo_shp_end}
 
 
 @app.route('/get_col_names_db', methods=['GET'])
 def get_col_names_db():
     global colunas_tabela
-    colunas_tabela = conexao.get_col_names_db(tabela)
+    colunas_tabela = jb.get_col_names_db(tabela)
     return {'colunas_db': colunas_tabela, "tabela_selecionada": tabela}
 
 
@@ -79,7 +65,7 @@ def get_tab_name():
 @app.route('/get_tabelas', methods=['GET'])
 def get_tabelas():
     global lista_tabelas
-    lista_tabelas = conexao.get_tables()
+    lista_tabelas = jb.get_tables()
     return {'tabelas': lista_tabelas}
 
 
@@ -87,8 +73,8 @@ def get_tabelas():
 def inserir():
     global colunas_selecionadas
     colunas_selecionadas = request.json["colunas_selecionadas"]
-    parametrizar = conexao.parametrizar(
+    parametrizar = jb.parametrizar(
         colunas_selecionadas, colunas_tabela)
-    inserir = conexao.inserir(parametrizar, host, usuario,
+    inserir = jb.inserir(parametrizar, host, usuario,
                     database, senha, arquivo_shp_end, arquivo_shp, tabela)
     return {'resultado': inserir}
