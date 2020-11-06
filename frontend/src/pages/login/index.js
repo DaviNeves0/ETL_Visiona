@@ -26,7 +26,7 @@ export default function Login() {
         try {
             const response = await api.post('login', data);
 
-            alert(`Conexão: ${response.data.conexao}`);
+            // alert(`Conexão: ${response.data.conexao}`);
 
             history.push('/Listar');
         } catch (err) {

@@ -26,12 +26,12 @@ class Jumbo():
         print("\t%s" % (tabela))
         programa = r"C:\Program Files\QGIS 3.10\bin\ogr2ogr.exe"
         de_para = r"%s from %s" % (parametrizar, arquivo_shp[:-4])
-        jb = r"PG:host=%s user=%s dbname=%s password=%s" % (host, usuario, database, senha)
+        conexao = r"PG:host=%s user=%s dbname=%s password=%s" % (host, usuario, database, senha)
         sf = shapefile.Reader(arquivo_shp_end)
         tipo = sf.shapeTypeName 
         if tipo == "MULTIPOINT":
             print("\tTipo: %s" % (sf.shapeTypeName))
-            command = [programa, "-f", "PostgreSQL", "-nlt", "MULTIPOINT", "-sql", de_para, jb, arquivo_shp_end, "-nln", tabela]
+            command = [programa, "-f", "PostgreSQL", "-nlt", "MULTIPOINT", "-sql", de_para, conexao, arquivo_shp_end, "-nln", tabela]
             print("\t%s" % (command))
             subprocess.check_call(command)
             return "\tSucesso"
@@ -42,13 +42,13 @@ class Jumbo():
             # return os.system(command)
         elif tipo == "POLYLINE":
             print("\tTipo: %s" % (sf.shapeTypeName))
-            command = [programa, "-f", "PostgreSQL", "-nlt", "MULTILINESTRING", "-sql", de_para, jb, arquivo_shp_end, "-nln", tabela]
+            command = [programa, "-f", "PostgreSQL", "-nlt", "MULTILINESTRING", "-sql", de_para, conexao, arquivo_shp_end, "-nln", tabela]
             print("\t%s" % (command))
             subprocess.check_call(command)
             return "\tSucesso"
         elif tipo == "POLYGON":
             print("\tTipo: %s" % (sf.shapeTypeName))
-            command = [programa, "-f", "PostgreSQL", "-nlt", "MULTIPOLYGON", "-sql", de_para, jb, arquivo_shp_end, "-nln", tabela]
+            command = [programa, "-f", "PostgreSQL", "-nlt", "MULTIPOLYGON", "-sql", de_para, conexao, arquivo_shp_end, "-nln", tabela]
             print("\t%s" % (command))
             subprocess.check_call(command)
             return "\tSucesso"

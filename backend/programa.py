@@ -2,8 +2,10 @@ import jumbo
 import shapefile
 import psycopg2
 import pathlib
+import os
 from flask import Flask, request, json
 from flask_cors import CORS
+from werkzeug.utils import secure_filename
 
 
 app = Flask(__name__)
@@ -26,18 +28,21 @@ def login():
     jb = jumbo.Jumbo()
     jb.conectar(host, porta, usuario, database, senha)
     print("OK")
-    return {"jb": True}
+    return {"conexao": True}
 
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
     global arquivo_shp
     global arquivo_shp_end
+    jumbo_recebe = pathlib.Path("jumbo_recebe").absolute()
     arquivo = request.files['shp']
-    if arquivo.filename != '':
-        arquivo.save(arquivo.filename)
-    arquivo_shp = "%s.shp" % (arquivo.filename[:-4])
-    arquivo_shp_end = "%s\%s" % (pathlib.Path().parent.absolute(), arquivo_shp)
+    caminho = os.path.join(jumbo_recebe, secure_filename(arquivo.filename))
+    arquivo.save(caminho)
+    arquivo_shp = arquivo.filename[:-4] + ".shp"
+    arquivo_shp_end = (caminho[:-4] + ".shp")
+    print (arquivo_shp)
+    print (arquivo_shp_end)
     return {'upload': True}
 
 
