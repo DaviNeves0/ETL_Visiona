@@ -38,7 +38,7 @@ Projeto da faculdade FATEC com parceria da empresa Visiona Tecnologia Espacial S
 Testes<br/>
     19. Documentação do Github<br/>    
     20. Preparar apresentação         
-</ul
+</ul>
     
 
 # Tecnologias
