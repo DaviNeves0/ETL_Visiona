@@ -8,7 +8,8 @@ Projeto da faculdade FATEC com parceria da empresa Visiona Tecnologia Espacial S
 # Demonstração
 
 # Burndown Chart
-![](https://i.imgur.com/Yu6hzUM.png)
+![](https://i.imgur.com/b5Yyi81.png)
+
 
 <ul>
   <li><b>Tarefas</b></li>
@@ -158,4 +159,7 @@ $ pip3 install -r requirements.txt
 
 <p align="center"><img src  = "https://i.stack.imgur.com/FvTZm.png"></center></p>
 
+
+# Representação do Sistema JumboETL em funcionamento
+link : [https://youtu.be/O3-_uzux-_U](https://)
 
