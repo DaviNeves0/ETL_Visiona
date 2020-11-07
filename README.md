@@ -179,4 +179,4 @@ $ pip3 install -r requirements.txt
 
 
 # Representação do Sistema JumboETL em funcionamento
-link : https://www.youtube.com/watch?v=O3-_uzux-_U
+link : 
