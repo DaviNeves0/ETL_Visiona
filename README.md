@@ -72,13 +72,13 @@ Testes<br/>
 
 
 <ul>
-  <li><b>Python 3</b></li>
+  <li><b>Java Development Kit</b></li>
     <ul>
-    <li><b>Windows</b></li> Realizar o download na página abaixo.<br/>https://www.python.org/downloads/
+    <li><b>Windows</b></li> Realizar o download na página abaixo.<br/>https://www.oracle.com/java/technologies/javase-downloads.html
     <li><b>Linux</b></li> Executar o comando.<br/>
 
 ```bash
-$ sudo apt install pip3
+?
 ```
    </ul>
 </ul>
@@ -92,6 +92,15 @@ $ sudo apt install pip3
 ```bash
 $ sudo apt install nodejs
 ```    
+  </ul>
+</ul>
+
+<ul>
+  <li><b>IDE</b></li>
+    <ul>
+    <li>Ambiente de Desenvolvimento Integrado</b></li> É necessário o download e instalação de uma IDE, como Eclipse ou Visual Studio Code.<br/>https://code.visualstudio.com/download
+    https://www.eclipse.org/downloads/
+        
   </ul>
 </ul>
 
@@ -170,4 +179,4 @@ $ pip3 install -r requirements.txt
 
 
 # Representação do Sistema JumboETL em funcionamento
-link : [](https://)
+link : https://www.youtube.com/watch?v=O3-_uzux-_U
