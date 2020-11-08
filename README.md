@@ -41,7 +41,7 @@ O sistema permite gerenciar os arquivos de dados georreferenciados no formato Sh
 ![](https://i.imgur.com/D63UCgD.png)
 
 # Protótipo do sistema JumboETL
-**Confira o prototipo da aplicação:** https://www.figma.com/proto/4NYTdae4FH7FnoFveT1LsP/JumboETL?node-id=222%3A179&scaling=contain
+**Confira o prototipo da aplicação:** https://www.figma.com/proto/4NYTdae4FH7FnoFveT1LsP/JumboETL?node-id=216%3A0&scaling=contain
 
 Configurando conexão com base de dados e inserindo dados em tabela do banco:
 
