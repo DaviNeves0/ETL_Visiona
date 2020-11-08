@@ -31,9 +31,9 @@ Link : https://www.youtube.com/watch?v=O3-_uzux-_U
     9. Programar função get_col_names_shp<br/>
     10. Programar função parametrizar<br/>
     11. Configurar React<br/>
-    12. Progamar página login<br/>
-    13. Progamar página lista<br/>
-    14. Progamar página inserir<br/>
+    12. Programar página login<br/>
+    13. Programar página lista<br/>
+    14. Programar página inserir<br/>
     15. Testes<br/>
     16. Documentação do Github<br/>
     17. Preparar apresentacao
