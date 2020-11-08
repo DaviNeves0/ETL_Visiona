@@ -6,6 +6,14 @@ Projeto da faculdade FATEC com parceria da empresa Visiona Tecnologia Espacial S
 ![](https://i.imgur.com/RLmVDsb.png)
 
 
+# Demonstração do Sistema JumboETL em funcionamento
+Link : https://youtu.be/zp9LMp5gkxw 
+
+<p align="center" href="https://www.youtube.com/watch?v=zp9LMp5gkxw">
+<img border="0" src="http://img.youtube.com/vi/zp9LMp5gkxw/0.jpg" width="100%" >
+</p>
+
+
 
 
 # Burndown Chart
@@ -29,19 +37,20 @@ Projeto da faculdade FATEC com parceria da empresa Visiona Tecnologia Espacial S
     11. Transcrever função lineType para Java<br/>
     12. Transcrever função polygonType para Java<br/>
     13. Programar função extractToShp em Java<br/>
-    14. Progamar página inserirProgramar função writeSQLInsert em Java<br/>
+    14. Programar função writeSQLInsert em Java<br/>
     15. Ajustar React (frontend)<br/>
     16. Implementar armazenamento local de variáveis do usuário<br/>
     17. Ajustar estilos visuais<br/>
     18. Programar página Extrair
-Testes<br/>
-    19. Documentação do Github<br/>    
-    20. Preparar apresentação         
+    19. Testes<br/>
+    20. Documentação do Github<br/>    
+    21. Preparar apresentação         
 </ul>
     
 
 # Tecnologias
-![](https://i.imgur.com/w3jtxBV.jpg)
+![](https://i.imgur.com/HSTNTz0.png)
+
 
 <ul>
   <li><b>Front-End</b></li>
@@ -49,13 +58,13 @@ Testes<br/>
       <li>HTML</li>
       <li>CSS</li>
       <li>Javascript</li>
-          - Bibliotecas: React, Axios, Ant Design
+          - Bibliotecas: React, Axios, React Suite
     </ul>
   
   <li><b>Back-End</b></li>
     <ul>
-      <li>Python 3</li>
-          - Bibliotecas: Flask, pyshp, psycopg2, flask-cors, python-dotenv
+      <li>Java 15</li>
+          - Bibliotecas: Maven, Spring, Tomcat, GeoTools
       <li>GDAL</li>
           - Utilitário: ogr2ogr
       <li>PostgreSQL</li>
@@ -64,7 +73,8 @@ Testes<br/>
 </ul>
 
 # Backlog
-![](https://i.imgur.com/W6hY6KK.png)
+![](https://i.imgur.com/D63UCgD.png)
+
 
 # Instruções de instalação
 
@@ -77,7 +87,7 @@ Testes<br/>
     <li><b>Linux</b></li> Executar o comando.<br/>
 
 ```bash
-?
+$ sudo apt install oracle-java15-installer
 ```
    </ul>
 </ul>
@@ -103,64 +113,6 @@ $ sudo apt install nodejs
   </ul>
 </ul>
 
-<ul>
-  <li><b>Virtualenv</b></li>
-  <ul>
-    <li><b>Windows</b></li> Executar o comando.<br/>
-   
-```bash
-> pip install virtualenv
-```
-
-   <li><b>Linux</b></li>Executar o comando.<br/>  
- 
-```bash
-# Debian, Ubuntu
-$ sudo apt-get install python-virtualenv
-
-# CentOS, Fedora
-$ sudo yum install python-virtualenv
-
-# Arch
-$ sudo pacman -S python-virtualenv
-```
-
-  </ul>  
-</ul>
- 
-<ul>
-
-<li><b>Criação do ambiente virtual</b></li>
-
-<ul>
-
-<li><b>Windows</b></li>
-
-```bash
-> py -m venv env
-> .\env\Scripts\activate
-```
-
-   Instalar as bibliotecas no virtualenv
-```bash
-> pip install -r requirements.txt
-```
-
-<li><b>Linux</b></li>
-
-```bash
-$ python3 -m venv env
-$ source env/bin/activate
-```
-
-   Instalar as bibliotecas no virtualenv
-```bash
-$ pip3 install -r requirements.txt
-```
-
-</ul>
-
-</ul>
 
 <ul>
   <li><b>PostgreSQL e PostGIS</b></li>
@@ -177,5 +129,3 @@ $ pip3 install -r requirements.txt
 <p align="center"><img src  = "https://i.stack.imgur.com/FvTZm.png"></center></p>
 
 
-# Representação do Sistema JumboETL em funcionamento
-link : https://youtu.be/zp9LMp5gkxw 
