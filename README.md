@@ -14,7 +14,7 @@ Projeto da faculdade FATEC com parceria da empresa Visiona Tecnologia Espacial S
 **Developer:** Thalles Santos Torres  
 
 # Tecnologias
-![](https://i.imgur.com/PsepDY6.jpg)
+![](https://i.imgur.com/HSTNTz0.png)
 
 # Sprints
 | Sprint                                                              | Data de Entrega |
@@ -38,10 +38,10 @@ O sistema permite gerenciar os arquivos de dados georreferenciados no formato Sh
 ![](https://imgur.com/3UwyV6f.png)
 
 # Backlog
-![](https://i.imgur.com/W6hY6KK.png)
+![](https://i.imgur.com/D63UCgD.png)
 
 # Protótipo do sistema JumboETL
-**Confira o prototipo da aplicação:** https://www.figma.com/proto/4NYTdae4FH7FnoFveT1LsP/JumboETL?node-id=216%3A0&scaling=contain
+**Confira o prototipo da aplicação:** https://www.figma.com/proto/4NYTdae4FH7FnoFveT1LsP/JumboETL?node-id=222%3A179&scaling=contain
 
 Configurando conexão com base de dados e inserindo dados em tabela do banco:
 
