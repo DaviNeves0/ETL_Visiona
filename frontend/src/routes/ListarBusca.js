@@ -1,10 +1,10 @@
 import React, { useState, Fragment, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../styles/style.css';
-import HeaderSearch from '../sections/HeaderSearch';
+import HeaderSearchWithResult from '../sections/HeaderSearchWithResult';
 import api from '../services/api';
 
-export default function Listar() {
+export default function ListarBusca() {
 
   const [tables, setTables] = useState([]);
   const [geoms, setGeoms] = useState([]);
@@ -16,24 +16,26 @@ export default function Listar() {
   const host = localStorage.getItem('jumbo/host');
   const port = localStorage.getItem('jumbo/port');
   const database = localStorage.getItem('jumbo/database');
+  const table = localStorage.getItem('jumbo/searchWord');
 
   const dados = {
     user,
     password,
     host,
     port,
-    database
+    database,
+    table
   };
 
   async function loadInsert(table) {
     localStorage.setItem('jumbo/table', table);
     history.push("/inserir");
-  };
+  }
 
   async function loadExtract(table) {
     localStorage.setItem('jumbo/table', table);
     history.push("/extrair");
-  };
+  }
 
   async function loadTableType(e) {
     history.push(`/${e.target.value}`);
@@ -45,10 +47,10 @@ export default function Listar() {
   };
 
   useEffect(() => {
-    api.post('get_tables', dados).then(response => {
+    api.post('search_table', dados).then(response => {
       setTables(response.data.tables)
     });
-    api.post('get_dbt_geom_type', dados).then(response => {
+    api.post('get_search_table_geom_type', dados).then(response => {
       setGeoms(response.data.dbtGeomTypes)
     });
   }, []);
@@ -56,7 +58,7 @@ export default function Listar() {
   return (
     <div className='container-list'>
       <Fragment>
-        <HeaderSearch />
+        <HeaderSearchWithResult />
         <div className='container-list-content'>
           <div className='container-list-header'>
             <table>
@@ -97,3 +99,8 @@ export default function Listar() {
     </div>
   );
 }
+
+
+
+
+

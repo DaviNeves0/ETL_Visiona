@@ -1,13 +1,14 @@
 import React, { useState, Fragment, useEffect } from 'react';
 import HeaderNoSearch from '../sections/HeaderNoSearch';
 import api from '../services/api';
-import apiFlask from '../services/apiFlask';
-import Loader from 'rsuite/lib/Loader';
-import 'rsuite/es/Loader/styles/themes/dark.less';
 import Uploader from 'rsuite/lib/Uploader';
 import 'rsuite/es/Uploader/styles/themes/dark.less';
+import { Modal } from 'rsuite';
+import 'rsuite/es/Modal/styles/themes/dark.less';
 import '../styles/custom-theme.less';
 import '../styles/style.css';
+import { LinearProgress } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 
 export default function Inserir() {
 
@@ -37,6 +38,23 @@ export default function Inserir() {
     selectedColumns
   };
 
+  const [open, setOpen] = React.useState(false);
+  var [progressStatus, setProgressStatus] = useState('indeterminate');
+  var [teste, setTeste] = useState('Carregando...');
+
+  const ColorLinearProgress = withStyles({
+    colorPrimary: {
+      backgroundColor: '#00FFE0',
+    },
+    barColorPrimary: {
+      backgroundColor: '#373A52',
+    },
+  })(LinearProgress);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
   async function requestInsert() {
 
     selectedColumns.length = 0;
@@ -47,13 +65,16 @@ export default function Inserir() {
     });
 
     try {
-      await api.post('/insert_shp_to_dbt', dados);
-      alert('Carregado com sucesso')
+      await api.post('/insert_shp_to_dbt', dados).then(response => {
+        setTeste(response.data.result)
+      });;
+      setProgressStatus("buffer")
     } catch (a) {
-      alert('Erro');
+      setProgressStatus("buffer")
+      setTeste("Falha ao inserir os dados");
     }
 
-  }
+  };
 
   useEffect(() => {
     api.post('get_dbt_col_names', dados).then(response => {
@@ -79,61 +100,57 @@ export default function Inserir() {
       <Fragment>
         <HeaderNoSearch />
       </Fragment>
+      <Modal backdrop={false} show={open} onHide={() => setOpen(false)}><Modal.Header>
+      </Modal.Header>
+        <Modal.Body>
+          <div><ColorLinearProgress variant={progressStatus} value={0} /></div>
+          <div className="text-modal" align='center'>{teste}</div>
+        </Modal.Body>
+      </Modal>
       <div className="container-insert-content">
         <>
           <header>
             <p>TABELA SELECIONADA: {table}</p>
           </header>
-
           <section id="sectionBackground">
-
             <nav>
-              {/* botao anterior de exemplo para o layout:  
-              <button className="btnImportar">Importar</button> */}
-
               <Uploader {...instanceUploader} />
-              {/* <Upload {...props}> <Button className="btnImportar">Importar</Button> </Upload> */}
             </nav>
             <article>
               <hr></hr>
               <div className="titleFields">
-                <p><span>Campos da Tabela:</span><a>Selecione o Campo:</a></p>
+                <p><span>Campos da Tabela:</span><span>Selecione o Campo:</span></p>
               </div>
-
               <hr></hr>
               {dbtColNames.map(dbtColName => (
-                <section className="selectionFields">
-                  <p>
+                <section key={dbtColName} className="selectionFields">
+                  <span>
                     <span>{dbtColName}</span>
-
-                    <a>
-                      <div class="select-wrapper">
-                        <select id={dbtColName} name="teste" title="teste">
+                    <div>
+                      <div className="select-wrapper">
+                        <select id={dbtColName}>
                           <>
-                            <option></option><div class="arrow"></div>
-
+                            <option></option>
                             {shpColNames.map(shpColName => <option key={shpColName} value={shpColName}> {shpColName} </option>)}
-
                           </>
                         </select>
                       </div>
-                    </a>
-                  </p>
+                    </div>
+                  </span>
                   <hr></hr>
                 </section>
               ))}
-
             </article>
           </section>
-
           <footer>
-            {/* botao anterior de exemplo para o layout
-            <button className="btnInserir">Inserir</button> */}
-            <button className="btnInserir" onClick={requestInsert}>Inserir</button>
+            <button className="btnInserir" onClick={function (event) { handleOpen(); requestInsert() }}>Inserir</button>
           </footer>
         </>
       </div>
+      <div>
+      </div>
     </div>
+
   );
 
 }

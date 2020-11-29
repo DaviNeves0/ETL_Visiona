@@ -1,4 +1,5 @@
 @import 'rsuite/lib/Uploader/styles/themes/dark.less';
+@import 'rsuite/lib/Modal/styles/themes/dark.less';
 @import 'rsuite/lib/Alert/styles/themes/dark.less';
 @import '~rsuite/lib/Toggle/styles/themes/dark.less';
 
@@ -76,6 +77,28 @@
     // font-weight: 600;
 }
 
+.rs-modal-wrapper{
+    opacity: 0.9;
+}
+
+.rs-modal-open .rs-modal-wrapper{
+    background: linear-gradient(180deg, #0500FF 0%, #00A3FF 100%), #FFFFFF;
+    // opacity: 0.9;
+}
+
+.rs-modal-open .rs-modal-dialog {
+    opacity: 1;
+}
+
+.rs-modal-open .rs-modal {
+    margin: 15% auto 0 auto;
+}
+
+.rs-modal-open .rs-modal-content {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
 @border-radius-base: 10px;
 @btn-default-bg: #00FFE0;
 @btn-default-hover-color: @text-color;
@@ -104,3 +127,5 @@
 @error-message-font-color: #ffffff;
 
 @font-size-small: 12px;
+
+@modal-backdrop-opacity: 0.8;

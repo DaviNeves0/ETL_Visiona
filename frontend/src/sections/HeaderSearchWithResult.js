@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
 
-export default function HeaderSearch() {
+export default function HeaderSearchWithResult() {
 
-    const history = useHistory();
-
-    const [searchWord, setSearchWord] = useState('');
+    var [searchWord, setSearchWord] = useState('');
 
     async function loadListarBusca() {
         localStorage.setItem('jumbo/searchWord', searchWord);
-        history.push('/ListarBusca');
+        window.location.reload();
     }
+
+    useEffect(() => {
+        setSearchWord(localStorage.getItem('jumbo/searchWord'));
+    }, []);
 
     return (
         <header className='container-header'>
@@ -20,7 +21,12 @@ export default function HeaderSearch() {
                 <p className="jumboETL">JumboETL</p>
             </Link>
             <div className='busca-header'>
-                <input type="text" className="txtBusca" placeholder="Digite aqui a sua busca" value={searchWord} onChange={e => setSearchWord(e.target.value)} />
+                <input
+                    value={searchWord}
+                    type="text"
+                    className="txtBusca"
+                    onChange={e => setSearchWord(e.target.value)}
+                />
                 <button className="btnBusca" onClick={loadListarBusca}>Buscar</button>
             </div>
             <Link to='/' onClick={() => { localStorage.clear() }} >

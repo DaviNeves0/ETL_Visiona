@@ -1,18 +1,19 @@
 import React, { useState, Fragment, useEffect } from 'react';
 import HeaderNoSearch from '../sections/HeaderNoSearch';
 import api from '../services/api';
-import apiFlask from '../services/apiFlask';
-
 import Toggle from 'rsuite/lib/Toggle';
 import 'rsuite/es/Toggle/styles/themes/dark.less';
-
+import { Modal } from 'rsuite';
+import 'rsuite/es/Modal/styles/themes/dark.less';
 import '../styles/custom-theme.less';
 import '../styles/style.css';
+import { LinearProgress } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 
 export default function Extrair() {
 
   const [dbtColNames, setDbtColNames] = useState([]);
-  const [choicedColumns, setChoicedColumns] = useState([]);
+  const choicedColumns = [];
 
   const user = localStorage.getItem('jumbo/user');
   const password = localStorage.getItem('jumbo/password');
@@ -31,6 +32,23 @@ export default function Extrair() {
     choicedColumns
   };
 
+  const [open, setOpen] = React.useState(false);
+  var [progressStatus, setProgressStatus] = useState('indeterminate');
+  var [teste, setTeste] = useState('Extraindo...');
+
+  const ColorLinearProgress = withStyles({
+    colorPrimary: {
+      backgroundColor: '#00FFE0',
+    },
+    barColorPrimary: {
+      backgroundColor: '#373A52',
+    },
+  })(LinearProgress);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
   useEffect(() => {
     api.post('get_dbt_col_names', dados).then(response => {
       setDbtColNames(response.data.dbtColNames)
@@ -44,7 +62,6 @@ export default function Extrair() {
       responseType: "blob"
     })
       .then(response => {
-        console.log(response.headers);
         const filename = response.headers['content-disposition']
           .split(';')
           .find(n => n.includes('filename='))
@@ -60,12 +77,12 @@ export default function Extrair() {
         link.remove();
       }
       );
-    alert('Carregado com sucesso')
+    setProgressStatus("buffer")
+    setTeste("Extraído com sucesso!")
   }
 
   async function handleColumnName(dbtColName) {
     if (choicedColumns.includes(dbtColName)) {
-      // alert(choicedColumns)
       for (var i = 0; i < choicedColumns.length; i++) {
         if (choicedColumns[i] === dbtColName) {
           choicedColumns.splice(i, 1)
@@ -73,7 +90,6 @@ export default function Extrair() {
       }
     }
     else {
-      // alert(choicedColumns)
       choicedColumns.push(dbtColName)
     }
   }
@@ -83,37 +99,39 @@ export default function Extrair() {
       <Fragment>
         <HeaderNoSearch />
       </Fragment>
+      <Modal backdrop={false} show={open} onHide={() => window.location.reload()}><Modal.Header>
+      </Modal.Header>
+        <Modal.Body>
+          <div><ColorLinearProgress variant={progressStatus} value={0} /></div>
+          <div className="text-modal" align='center'>{teste}</div>
+        </Modal.Body>
+      </Modal>
       <div className="container-extract-content">
         <>
           <header>
             <p>TABELA SELECIONADA: {table}</p>
           </header>
-
-          <p id='extractTitle'>Selecione os arquivos que deseja extrair:</p>
+          <p id='extractTitle'>Selecione os campos que deseja extrair:</p>
           <section id="extractBackground">
-
             <article>
               <hr></hr>
               {dbtColNames.map(dbtColName => (
-                <section className='extractFields'>
-                  <p>
-                    <span>{dbtColName}</span>
-                    
-                    <a>
+                <section key={dbtColName} className='extractFields'>
+                  <span className="extractFields-span">
+                    <span className="extractFields-cell1">{dbtColName}</span>
+                    <div className="extractFields-cell2">
                       <Toggle onChange={e => handleColumnName(dbtColName)} />
-                    </a>
-                  </p>
-
-                  <hr></hr>
+                    </div>
+                  </span>
+                  <hr className="extractFields-hr"></hr>
                 </section>
               ))}
             </article>
-            <button className="btnExtrair" onClick={requestExtract}>Extrair</button>
+            <button className="btnExtrair" onClick={function (event) { handleOpen(); requestExtract() }}>Extrair</button>
+            <p>{choicedColumns}</p>
           </section>
         </>
       </div>
-
     </div >
   )
-
 }

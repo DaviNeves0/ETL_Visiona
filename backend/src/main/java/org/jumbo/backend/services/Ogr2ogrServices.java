@@ -11,9 +11,9 @@ public class Ogr2ogrServices {
 
 		System.out.println("\tExtraindo os arquivos da tabela selecionada para o diretório");
 		System.out.println("\tTabela Selecionada: " + table);
-		
+
 		deParaSaida = deParaSaida + " from " + table;
-		
+
 		String programa = "\"C:\\Program Files\\QGIS 3.10\\bin\\ogr2ogr.exe\"";
 		String conexao = String.format("PG:\"host=%s user=%s dbname=%s password=%s\" ", host, user, database, password);
 		endDespacho = String.format("\"%s\" ", endDespacho);
@@ -39,7 +39,7 @@ public class Ogr2ogrServices {
 			if (exitVal == 0) {
 				System.out.println("\tProcesso concluído com sucesso");
 			} else {
-				System.out.printf("\tErro: %s\n",  output);
+				System.out.printf("\tErro: %s\n", output);
 				throw new Exception();
 			}
 
@@ -51,8 +51,8 @@ public class Ogr2ogrServices {
 
 	}
 
-	public static String shpToDbt(String shpFileName, String shpFilePath, String parametrizar, String host,
-			String user, String database, String password, String table) throws Exception {
+	public static String shpToDbt(String shpFileName, String shpFilePath, String parametrizar, String host, String user,
+			String database, String password, String table) throws Exception {
 		String typeShp, conexao;
 		conexao = String.format("PG:\"host=%s user=%s dbname=%s password=%s\"", host, user, database, password);
 		typeShp = ShapefileServices.getShpGeomType(shpFilePath);
@@ -94,12 +94,12 @@ public class Ogr2ogrServices {
 			while ((line = reader.readLine()) != null) {
 				output.append(line + "\n");
 			}
-			
+
 			int exitVal = process.waitFor();
 			if (exitVal == 0) {
 				System.out.println("\tProcesso concluído com sucesso");
 			} else {
-				System.out.printf("\tErro: %s\n",  output);
+				System.out.printf("\tErro: %s\n", output);
 				throw new Exception();
 			}
 
@@ -130,12 +130,12 @@ public class Ogr2ogrServices {
 			while ((line = reader.readLine()) != null) {
 				output.append(line + "\n");
 			}
-			
+
 			int exitVal = process.waitFor();
 			if (exitVal == 0) {
 				System.out.println("\tProcesso concluído com sucesso");
 			} else {
-				System.out.printf("\tErro: %s\n",  output);
+				System.out.printf("\tErro: %s\n", output);
 				throw new Exception();
 			}
 
@@ -165,12 +165,55 @@ public class Ogr2ogrServices {
 			while ((line = reader.readLine()) != null) {
 				output.append(line + "\n");
 			}
-			
+
 			int exitVal = process.waitFor();
 			if (exitVal == 0) {
 				System.out.println("\tProcesso concluído com sucesso");
 			} else {
-				System.out.printf("\tErro: %s\n",  output);
+				System.out.printf("\tErro: %s\n", output);
+				throw new Exception();
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public static void dbtToGeojson(String host, String user, String database, String password, String table,
+			String endDespacho) throws Exception {
+
+		System.out.println("\tConvertendo dados da tabela selecionada para o GeoJSON");
+		System.out.println("\tTabela Selecionada: " + table);
+
+		endDespacho = String.format("\"%s\" ", endDespacho);
+		String programa = "\"C:\\Program Files\\QGIS 3.10\\bin\\ogr2ogr.exe\"";
+
+		String conexao = String.format("PG:\"host=%s user=%s dbname=%s password=%s\" ", host, user, database, password);
+
+		String executa = programa + " -f " + "\"GeoJSON\" -a_srs \"crs:84\" " + endDespacho + conexao + table;
+
+		System.out.println("\t" + executa);
+
+		try {
+			Process process = Runtime.getRuntime().exec(executa);
+
+			StringBuilder output = new StringBuilder();
+
+			BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+
+			String line;
+			while ((line = reader.readLine()) != null) {
+				output.append(line + "\n");
+			}
+
+			int exitVal = process.waitFor();
+			if (exitVal == 0) {
+				System.out.println("\tProcesso concluído com sucesso");
+			} else {
+				System.out.printf("\tErro: %s\n", output);
 				throw new Exception();
 			}
 

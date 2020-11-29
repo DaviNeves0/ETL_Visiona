@@ -7,7 +7,6 @@ import api from '../services/api';
 export default function Listar() {
 
   const [tables, setTables] = useState([]);
-  const [geoms, setGeoms] = useState([]);
 
   const history = useHistory();
 
@@ -28,16 +27,16 @@ export default function Listar() {
   async function loadInsert(table) {
     localStorage.setItem('jumbo/table', table);
     history.push("/inserir");
-  };
+  }
 
   async function loadExtract(table) {
     localStorage.setItem('jumbo/table', table);
     history.push("/extrair");
-  };
+  }
 
   async function loadTableType(e) {
     history.push(`/${e.target.value}`);
-  };
+  }
 
   async function loadViewer(table) {
     localStorage.setItem('jumbo/table', table);
@@ -45,11 +44,8 @@ export default function Listar() {
   };
 
   useEffect(() => {
-    api.post('get_tables', dados).then(response => {
+    api.post('get_multipolygon_tables', dados).then(response => {
       setTables(response.data.tables)
-    });
-    api.post('get_dbt_geom_type', dados).then(response => {
-      setGeoms(response.data.dbtGeomTypes)
     });
   }, []);
 
@@ -67,9 +63,9 @@ export default function Listar() {
                   <td className="list-dropbox">
                     <div className="select-wrapper2">
                       <select onChange={e => loadTableType(e)}>
+                        <option value="listarpoligono"> Polígono </option>
                         <option value="listar"> Todos </option>
                         <option value="listarlinha"> Linha </option>
-                        <option value="listarpoligono"> Polígono </option>
                         <option value="listarponto"> Ponto </option>
                       </select>
                     </div>
@@ -81,9 +77,9 @@ export default function Listar() {
           <div className='container-list-table'>
             <table>
               <tbody>
-                {tables.map((table, index) => (
+                {tables.map(table => (
                   <tr key={table}>
-                    <td className='list-icon'><div onClick={() => loadViewer(table)} className={String(geoms[index]).toLowerCase()}></div></td>
+                    <td className='list-icon'><div onClick={() => loadViewer(table)} className="multipolygon"></div></td>
                     <td className='list-text'>{table}</td>
                     <td className='list-button'><button type='submit' onClick={() => loadInsert(table)}>Inserir</button></td>
                     <td className='list-button'> <button type='submit' onClick={() => loadExtract(table)}>Extrair</button></td>

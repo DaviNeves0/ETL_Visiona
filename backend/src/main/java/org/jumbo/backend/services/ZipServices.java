@@ -23,7 +23,7 @@ import java.util.zip.ZipOutputStream;
 
 public class ZipServices {
 
-	public static void zipDirectory(String pastaCriada, String palavraAleatoria) throws IOException {
+	public static void zipDirectory(String pastaCriada, String table, String palavraAleatoria) throws IOException {
 		System.out.println("\tIniciando processo de criação do arquivo compactado");
 		File directoryToZip = new File(pastaCriada);
 
@@ -32,7 +32,7 @@ public class ZipServices {
 				.println("\tColetando o nome de todos os arquivos do diretório: " + directoryToZip.getCanonicalPath());
 		getAllFiles(directoryToZip, fileList);
 		System.out.println("\tCriando o arquivo compactado");
-		writeZipFile(directoryToZip, fileList, palavraAleatoria);
+		writeZipFile(directoryToZip, fileList, table, palavraAleatoria);
 		System.out.println("\tArquivo compactado gerado");
 	}
 
@@ -53,11 +53,11 @@ public class ZipServices {
 		}
 	}
 
-	public static void writeZipFile(File directoryToZip, List<File> fileList, String palavraAleatoria) {
+	public static void writeZipFile(File directoryToZip, List<File> fileList, String table, String palavraAleatoria) {
 
 		try {
 			FileOutputStream fos = new FileOutputStream(
-					System.getProperty("user.dir") + "\\jumbo_despacha\\" + palavraAleatoria + ".zip");
+					System.getProperty("user.dir") + "\\jumbo_despacha\\" + table + "-" + palavraAleatoria + ".zip");
 			ZipOutputStream zos = new ZipOutputStream(fos);
 
 			for (File file : fileList) {

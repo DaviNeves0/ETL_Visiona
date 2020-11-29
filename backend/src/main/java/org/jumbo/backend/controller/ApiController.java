@@ -42,6 +42,7 @@ public class ApiController {
 
 		try (Connection con = PostgresqlServices.getConnection(parametros.getHost(), parametros.getPort(),
 				parametros.getDatabase(), parametros.getUser(), parametros.getPassword())) {
+			con.close();
 			resultado = "Conectado";
 			map.put("isConnected", resultado);
 			System.out.println("\t" + resultado);
@@ -72,10 +73,9 @@ public class ApiController {
 	public Map<String, String> insertShpToDbt(@RequestBody Parameters parametros) throws Exception {
 		System.out.println("\nRecebendo acesso na rota 'insert_shp_to_dbt'\n");
 
-		String resultado = InputServices.insertShpToDbt(parametros.getDbtColNames(),
-				parametros.getSelectedColumns(), parametros.getShpFileName(), parametros.getShpFilePath(),
-				parametros.getHost(), parametros.getUser(), parametros.getDatabase(), parametros.getPassword(),
-				parametros.getTable());
+		String resultado = InputServices.insertShpToDbt(parametros.getDbtColNames(), parametros.getSelectedColumns(),
+				parametros.getShpFileName(), parametros.getShpFilePath(), parametros.getHost(), parametros.getUser(),
+				parametros.getDatabase(), parametros.getPassword(), parametros.getTable());
 
 		Map<String, String> map = new HashMap<>();
 		map.put("result", resultado);
@@ -85,7 +85,7 @@ public class ApiController {
 	@PostMapping(path = "/extract_dbt_to_shp")
 	public void extractDbtToShp(HttpServletResponse response, @RequestBody Parameters parametros) throws Exception {
 		System.out.println("\nRecebendo acesso na rota 'extract_dbt_to_shp'\n");
-		
+
 		String saida = OutputServices.extractDbtToShp(parametros.getChoicedColumns(), parametros.getTable(),
 				parametros.getHost(), parametros.getUser(), parametros.getDatabase(), parametros.getPassword());
 
@@ -106,34 +106,18 @@ public class ApiController {
 		System.out.println("\tExtração concluída com sucesso");
 	}
 
-//	@GetMapping(path = "/download")
-//	public ResponseEntity<InputStreamResource> download() throws Exception {
-// 
-//        File file = new File("D:\\shp.zip");
-//        InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
-//              
-//        return ResponseEntity.ok()
-//                // Content-Disposition
-//                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" + file.getName())
-//                // Content-Type
-//                .contentType(MediaType.parseMediaType("application/zip"))
-//                // Content-Length
-//                .contentLength(file.length()) //
-//                .body(resource);
-//	}
-
 	@PostMapping(path = "/upload_shp")
 	public Map<String, String> uploadShp(@RequestParam MultipartFile shpFile) throws Exception {
 		System.out.println("\nRecebendo acesso na rota 'upload_shp'\n");
 
 		String caminho = shpFile.getOriginalFilename();
-		
+
 		System.out.printf("\tArquivo recebido: %s\n", caminho);
-		
+
 		String caminho2 = System.getProperty("user.dir") + "\\jumbo_recebe";
-		
+
 		Files.createDirectories(Paths.get(caminho2));
-		
+
 		caminho2 = caminho2 + "\\" + shpFile.getOriginalFilename();
 
 		Files.copy(shpFile.getInputStream(), Paths.get(caminho2), StandardCopyOption.REPLACE_EXISTING);
@@ -177,8 +161,112 @@ public class ApiController {
 		return map;
 	}
 
-//	@PostMapping(path="/search_table_name")
+	@PostMapping(path = "/get_dbt_geom_type")
+	public Map<String, List<String>> getDbtGeomType(@RequestBody Parameters parametros) throws Exception {
+		System.out.println("\nRecebendo acesso na rota 'get_dbt_geom_type'\n");
 
-//	@PostMapping(path="/search_geomtype")
+		List<String> dbtGeomTypes = new ArrayList<>();
+		dbtGeomTypes = PostgresqlServices.getDbtGeomType(parametros.getHost(), parametros.getPort(),
+				parametros.getDatabase(), parametros.getUser(), parametros.getPassword());
+
+		Map<String, List<String>> map = new HashMap<>();
+		map.put("dbtGeomTypes", dbtGeomTypes);
+
+		return map;
+	}
+
+	@PostMapping(path = "/get_multipoint_tables")
+	public Map<String, List<String>> getMultipointTables(@RequestBody Parameters parametros) throws Exception {
+		System.out.println("\nRecebendo acesso na rota 'get_multipoint_tables'\n");
+
+		List<String> tabelas = new ArrayList<>();
+		tabelas = PostgresqlServices.getMultipointTables(parametros.getHost(), parametros.getPort(),
+				parametros.getDatabase(), parametros.getUser(), parametros.getPassword());
+
+		Map<String, List<String>> map = new HashMap<>();
+		map.put("tables", tabelas);
+
+		return map;
+	}
+
+	@PostMapping(path = "/get_multilinestring_tables")
+	public Map<String, List<String>> getMultilinestringTables(@RequestBody Parameters parametros) throws Exception {
+		System.out.println("\nRecebendo acesso na rota 'get_multilinestring_tables'\n");
+
+		List<String> tabelas = new ArrayList<>();
+		tabelas = PostgresqlServices.getMultilinestringTables(parametros.getHost(), parametros.getPort(),
+				parametros.getDatabase(), parametros.getUser(), parametros.getPassword());
+
+		Map<String, List<String>> map = new HashMap<>();
+		map.put("tables", tabelas);
+
+		return map;
+	}
+
+	@PostMapping(path = "/get_multipolygon_tables")
+	public Map<String, List<String>> getMultipolygonTables(@RequestBody Parameters parametros) throws Exception {
+		System.out.println("\nRecebendo acesso na rota 'get_multipolygon_tables'\n");
+
+		List<String> tabelas = new ArrayList<>();
+		tabelas = PostgresqlServices.getMultipolygonTables(parametros.getHost(), parametros.getPort(),
+				parametros.getDatabase(), parametros.getUser(), parametros.getPassword());
+
+		Map<String, List<String>> map = new HashMap<>();
+		map.put("tables", tabelas);
+
+		return map;
+	}
+
+	@PostMapping(path = "/get_geojson")
+	public void getGeojson(HttpServletResponse response, @RequestBody Parameters parametros) throws Exception {
+		System.out.println("\nRecebendo acesso na rota 'get_geojson'\n");
+
+		String address = OutputServices.getGeojson(parametros.getHost(), parametros.getUser(), parametros.getDatabase(),
+				parametros.getPassword(), parametros.getTable());
+
+		File file = new File(address);
+
+		response.setHeader("Access-Control-Expose-Headers", "Content-Disposition");
+		response.setContentType("application/json");
+		response.setHeader("Content-Disposition", "attachment; filename=" + file.getName());
+
+		OutputStream out = response.getOutputStream();
+		FileInputStream in = new FileInputStream(file);
+
+		IOUtils.copy(in, out);
+
+		out.close();
+		in.close();
+		file.delete();
+		System.out.println("\tDados enviados com sucesso");
+	}
+
+	@PostMapping(path = "/search_table")
+	public Map<String, List<String>> searchTable(@RequestBody Parameters parametros) throws Exception {
+		System.out.println("\nRecebendo acesso na rota 'search_tables'\n");
+
+		List<String> tabelasprocuradas = new ArrayList<>();
+		tabelasprocuradas = PostgresqlServices.searchTable(parametros.getHost(), parametros.getPort(),
+				parametros.getDatabase(), parametros.getUser(), parametros.getPassword(), parametros.getTable());
+
+		Map<String, List<String>> map = new HashMap<>();
+		map.put("tables", tabelasprocuradas);
+
+		return map;
+	}
+
+	@PostMapping(path = "/get_search_table_geom_type")
+	public Map<String, List<String>> getSearchTableGeomType(@RequestBody Parameters parametros) throws Exception {
+		System.out.println("\nRecebendo acesso na rota 'get_dbt_geom_type'\n");
+
+		List<String> dbtGeomTypes = new ArrayList<>();
+		dbtGeomTypes = PostgresqlServices.getSearchTableGeomType(parametros.getHost(), parametros.getPort(),
+				parametros.getDatabase(), parametros.getUser(), parametros.getPassword(), parametros.getTable());
+
+		Map<String, List<String>> map = new HashMap<>();
+		map.put("dbtGeomTypes", dbtGeomTypes);
+
+		return map;
+	}
 
 }

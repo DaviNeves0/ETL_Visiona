@@ -6,7 +6,7 @@ public class Testes {
 
 	public static void main(String[] args) throws Exception {
 
-		String arquivo = "D:\\bak\\shp\\geoft_bho_2017_ponto_drenagem.shp";
+		String arquivo = "D:\\Mega\\jumboetl\\shp\\geoft_bho_2017_ponto_drenagem.shp";
 
 //		ShapefileServices.readShpDataStore(arquivo);
 		ShapefileServices.readShpQuery(arquivo, 1);
@@ -26,7 +26,7 @@ public class Testes {
 //		
 //		arquivo = "D:\\bak\\shp\\geoft_bho_ach_otto_nivel_01.shp";
 //		ShapefileServices.getShpGeomType(arquivo);
-		
+
 	}
 
 }

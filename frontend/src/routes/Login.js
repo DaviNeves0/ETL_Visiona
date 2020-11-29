@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useHistory, Redirect } from 'react-router-dom';
 import api from '../services/api';
 import Alert from 'rsuite/lib/Alert';
 import 'rsuite/es/Alert/styles/themes/dark.less';
@@ -7,6 +7,7 @@ import '../styles/style.css';
 
 export default function Login() {
 
+    const [isLogged, setIsLogged] = useState(false);
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
     const [host, setHost] = useState('');
@@ -32,22 +33,6 @@ export default function Login() {
         localStorage.setItem('jumbo/port', dados.port);
         localStorage.setItem('jumbo/database', dados.database);
 
-        // try {
-        //     const response = await api.post('login', dados);
-
-        //     Alert.success(`${response.data.isConnected}`);
-        //     history.push('/listar');
-
-        // } catch (err) {
-        //     if (err.response) {
-        //         Alert.error(`${err.response.data.isConnected}`);
-        //     } else if (err.request) {
-        //         Alert.error(`Não foi possível conectar`);
-        //     } else {
-        //         Alert.error(`Não foi possível conectar`);
-        //     }
-        // }
-
         try {
             const response = await api.post('login', dados);
             if (response.data.isConnected === "Conectado") {
@@ -65,20 +50,29 @@ export default function Login() {
                 Alert.error(`Não foi possível conectar`);
             }
         }
-        
+
     }
 
+    useEffect(() => {
+        const userOn = localStorage.getItem('jumbo/user');
+        if (userOn !== null || '') {
+            setIsLogged(true)
+        }
+    }, []);
+
+    if (isLogged) {
+        return <Redirect to='/listar' />;
+    }
 
     return (
         <div className="container-login">
             <div className="container-login-content">
                 <section className="leftLogin">
-                    <img src={require('../assets/login-banner.svg')} />
+                    <img src={require('../assets/login-banner.svg')} alt='Clique para visualizar o mapa' />
                 </section>
                 <section className="rightLogin">
                     <form onSubmit={requestConnection}>
                         <div className="login-form-topside">
-                            {/* this div class was not used yet */}
                             <div className="login-form-topside-user">
                                 <label>Usuário</label>
                                 <input value={user} onChange={e => setUser(e.target.value)} />
@@ -101,7 +95,7 @@ export default function Login() {
                             </div>
                         </div>
                         <div className="login-form-button">
-                            <button class='btnLogin' type='submit'>Conectar</button>
+                            <button className='btnLogin' type='submit'>Conectar</button>
                         </div>
                     </form>
                 </section>

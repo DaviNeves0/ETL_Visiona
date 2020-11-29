@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
 /* ----- global stuff ----- */
 
 html {
@@ -27,9 +26,34 @@ hr {
     background-color: #000000;
 }
 
+.multipoint {
+    background-image: url("../assets/multipoint.svg");
+    height: 40px;
+    width: 40px;
+}
+
+.multilinestring {
+    background-image: url("../assets/multilinestring.svg");
+    height: 40px;
+    width: 40px;
+}
+
+.multipolygon {
+    background-image: url("../assets/multipolygon.svg");
+    height: 40px;
+    width: 40px;
+}
+
+.nogeom {
+    background-image: url("../assets/nogeom.svg");
+    height: 40px;
+    width: 40px;
+}
+
 /* ----- extract ----- */
+
 .container-extract {
-    width: 100vw;
+    /* width: 100vw; */
     padding-bottom: 3rem;
 }
 
@@ -77,7 +101,7 @@ hr {
 /* ----- insert ----- */
 
 .container-insert {
-    width: 100vw;
+    /* width: 100vw; */
     padding-bottom: 3rem;
 }
 
@@ -205,7 +229,6 @@ nav {
     filter: brightness(90%);
 }
 
-
 .btnExtrair:hover {
     filter: brightness(90%);
 }
@@ -227,7 +250,7 @@ nav {
     padding-left: 2rem;
 }
 
-.titleFields p>a {
+.titleFields p>div {
     text-align: right;
     display: table-cell;
     padding-right: 2rem;
@@ -238,19 +261,19 @@ nav {
     padding: 0.5rem;
 }
 
-.selectionFields p {
+.selectionFields span {
     display: table;
     width: 100%;
     margin: 0;
 }
 
-.selectionFields p>span {
+.selectionFields span>span {
     text-align: left;
     display: table-cell;
     padding-left: 2rem;
 }
 
-.selectionFields p>a {
+.selectionFields span>div {
     text-align: right;
     display: table-cell;
 }
@@ -263,19 +286,19 @@ nav {
     margin-right: auto;
 }
 
-.extractFields p {
+.extractFields .extractFields-span {
     display: table;
     width: 100%;
     margin-top: 5px;
 }
 
-.extractFields p>span {
+.extractFields .extractFields-span>span {
     text-align: left;
     display: table-cell;
     padding-left: 3rem;
 }
 
-.extractFields p>a {
+.extractFields .extractFields-span>div {
     text-align: right;
     display: table-cell;
     padding-right: 3rem;
@@ -337,18 +360,28 @@ select {
 
 /* ----- list ----- */
 
-.container-list {
+/* .container-list {
     height: 100vh;
     width: 100vw;
-}
+} */
 
 .container-list-content {
-    width: 670px;
+    width: 600px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    color: #ffffff;
     background: rgba(86, 204, 242, 0.5);
     box-shadow: 0px 4px 77px 9px rgba(0, 0, 0, 0.25);
+}
+
+.container-list-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
 }
 
 .container-list-table {
@@ -356,7 +389,6 @@ select {
     flex-direction: row;
     justify-content: space-between;
     align-content: center;
-    padding-bottom: 1rem;
 }
 
 .container-list-table p {
@@ -368,9 +400,8 @@ select {
 .container-list-table button {
     cursor: pointer;
     height: 50px;
-    width: 150px;
-    margin-right: 2rem;
-    margin-top: 1rem;
+    width: 120px;
+    margin-right: 1rem;
     color: #000000;
     background: #00FFE0;
     border-radius: 10px;
@@ -506,14 +537,13 @@ select {
     width: 800px;
     margin-left: auto;
     margin-right: auto;
-
     background: rgba(86, 204, 242, 0.5);
     box-shadow: 0px 4px 77px 9px rgba(0, 0, 0, 0.25);
     position: fixed;
-  top: 50%;
-  left: 50%;
-  /* bring your own prefixes */
-  transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
 }
 
 .leftLogin {
@@ -620,5 +650,127 @@ select {
     border-radius: 10px;
     border: 1px solid #00FFE0;
     border: none;
+}
+
+.container-list-header table, tr {
+    width: 100%;
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+}
+
+.container-list-header td {
+    padding-bottom: 1.5rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.list-tables {
+    width: 60%;
+}
+
+.list-filter {
+    width: 30%;
+    text-align: right;
+}
+
+.list-dropbox {
+    width: 10%;
+}
+
+.list-dropbox select {
+    height: 25px;
+    width: 100px;
+    color: #000000;
+    padding-left: 10px;
+    border-radius: 5px;
+    border: 1px solid #00FFE0;
+    background: #00FFE0;
     font-weight: 600;
+    border: none;
+}
+
+.container-list-table table, tr {
+    width: 100%;
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+}
+
+.container-list-table td {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+}
+
+.list-icon {
+    cursor: pointer;
+    height: 50px;
+    width: 10%;
+}
+
+.list-icon:hover {
+    filter: brightness(90%);
+}
+
+.list-text {
+    color: #ffffff;
+    height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+
+.list-button {
+    height: 50px;
+    width: 10%;
+}
+
+.vis {
+    position: relative;
+}
+
+#load {
+    height: 70px;
+    width: 350px;
+    margin: auto;
+    color: #ffffff;
+    padding: 2rem;
+    background: rgba(86, 204, 242, 0.5);
+    box-shadow: 0px 4px 77px 9px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+.load-div {
+    padding-top: 16px;
+}
+
+.select-wrapper2 {
+    position: relative;
+}
+
+.select-wrapper2:before {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-top: 1px solid #000000;
+    border-right: 1px solid #000000;
+    transform: rotate(135deg);
+    font-family: Roboto;
+    content: "";
+    color: #ffffff;
+    display: inline-block;
+    position: absolute;
+    right: 12px;
+    top: 6px;
+    pointer-events: none;
+    font-size: 20px;
+}
+
+.text-modal {
+    margin: auto;
+    color: #ffffff;
+    padding-top: 2rem;
 }

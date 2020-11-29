@@ -68,8 +68,8 @@ public class Parameters {
 		return dbtColNames;
 	}
 
-	public void setDbtColNames(List<String> dBTColNames) {
-		dbtColNames = dBTColNames;
+	public void setDbtColNames(List<String> dbtColNames) {
+		this.dbtColNames = dbtColNames;
 	}
 
 	public String getShpFileName() {
