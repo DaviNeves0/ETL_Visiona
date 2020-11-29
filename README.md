@@ -9,8 +9,8 @@ Projeto da faculdade FATEC com parceria da empresa Visiona Tecnologia Espacial S
 # Demonstração do Sistema JumboETL em funcionamento
 Link : https://youtu.be/6gogiZd2Po0
 
-<a align="center" href="https://www.youtube.com/watch?v=SEM_LINK">
-<img border="0" src="http://img.youtube.com/vi/SEM_LINK/0.jpg" width="100%" >
+<a align="center" href="https://www.youtube.com/watch?v=6gogiZd2Po0">
+<img border="0" src="http://img.youtube.com/vi/6gogiZd2Po0/0.jpg" width="100%" >
 </a>
 
 
